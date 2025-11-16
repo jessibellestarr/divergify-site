@@ -10,7 +10,7 @@
 <header>
   <nav class="nav">
     <div class="nav-left">
-      <div class="nav-logo-icon">D</div>
+      <img src="assets/logo_transparent_small.png" alt="Divergify" class="nav-logo">
       <div class="nav-title">
         <span class="nav-title-main">Divergify</span>
         <span class="nav-title-sub">Neurodivergent ops center</span>
@@ -33,22 +33,22 @@
     <div class="section-header">
       <div class="section-kicker">Our shared language</div>
       <h1 class="section-title">Divergipedia</h1>
+      <p class="lead">A 100-term lexicon celebrating neurodivergent brilliance, playful productivity, and the Divergify community.</p>
     </div>
-    <div class="card">
-      <p>
-        A 100-term lexicon for neurodivergent life, productivity, and the weird
-        brilliance of brains that don’t behave.
-      </p>
-      <p>
-        This is where we name the patterns, honor the workarounds, and design
-        systems that fit how we actually function.
-      </p>
-      <p>
-        Visual icons for each term are coming. For now, we’re shipping the
-        words so they can start doing their job: giving you language for what
-        you’ve always felt.
-      </p>
+
+    <div class="encyclopedia-grid">
+      <aside class="toc">
+        <h2>Browse</h2>
+        <input id="toc-search" class="toc-search" type="search" placeholder="Search terms..." aria-label="Search Divergipedia" />
+        <div class="alpha" id="alpha"></div>
+        <div class="toc-list" id="toc-list"></div>
+      </aside>
+
+      <section id="entries" aria-label="Divergipedia entries"></section>
     </div>
+
+    <h2 class="letter-divider" id="more">More From The Archives</h2>
+    <div id="archive-grid" class="three-col"></div>
   </section>
 </main>
 
@@ -60,6 +60,133 @@
 </footer>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function(){
+    const entriesRoot = document.getElementById('entries');
+    const toc = document.getElementById('toc-list');
+    const alpha = document.getElementById('alpha');
+    const search = document.getElementById('toc-search');
+    const seen = new Set();
+    const norm = (s) => (s||'').trim().toLowerCase().replace(/\s+/g,' ');
+
+    // Build A–Z
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(ch=>{
+      const a = document.createElement('a'); a.href = `#letter-${ch.toLowerCase()}`; a.textContent = ch; alpha.appendChild(a);
+    });
+
+    function addEntry(term, body) {
+      const letter = term[0].toUpperCase();
+      let header = entriesRoot.querySelector(`#letter-${letter.toLowerCase()}`);
+      if (!header) {
+        header = document.createElement('h2');
+        header.id = `letter-${letter.toLowerCase()}`;
+        header.className = 'letter-divider';
+        header.textContent = letter;
+        entriesRoot.appendChild(header);
+      }
+      const id = term.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+      const art = document.createElement('article');
+      art.id = id; art.dataset.term = term; art.className = 'entry';
+      art.innerHTML = `<h3>${term}</h3><p>${body}</p><figure><figcaption></figcaption></figure><a class="back-to-top" href="#top">Back to top</a>`;
+      entriesRoot.appendChild(art);
+      const link = document.createElement('a'); link.href = `#${id}`; link.textContent = term; toc.appendChild(link);
+      seen.add(norm(term));
+    }
+
+    function filterTOC(q){
+      const query = q.trim().toLowerCase();
+      const links = toc.querySelectorAll('a');
+      const articles = entriesRoot.querySelectorAll('.entry');
+      articles.forEach((e, idx)=>{
+        const text = (e.dataset.term + ' ' + e.innerText).toLowerCase();
+        const match = !query || text.includes(query);
+        e.style.display = match ? '' : 'none';
+        if (links[idx]) links[idx].style.display = match ? '' : 'none';
+      });
+    }
+    search.addEventListener('input', (e)=>filterTOC(e.target.value));
+
+    // Parse markdown (## Term + paragraph)
+    fetch('data/divergipedia.md').then(r=>r.ok?r.text():'').then(md=>{
+      if (!md) return;
+      const blocks = md.split(/\n##\s+/).slice(1);
+      blocks.forEach(block=>{
+        const lines = block.split('\n');
+        const title = (lines.shift()||'').trim();
+        if (!title || seen.has(norm(title))) return;
+        let desc = '';
+        for (let i=0;i<lines.length;i++){
+          const line = lines[i].trim();
+          if (!line) { if (desc) break; else continue; }
+          if (line.startsWith('![')) continue;
+          desc += (desc?' ':'') + line;
+        }
+        if (desc) addEntry(title, desc);
+      });
+    }).catch(()=>{});
+
+    // Fallback sources (text list + JSON)
+    fetch('data/divergipedia_full.txt').then(r=>r.ok?r.text():'').then(txt=>{
+      const grid=document.getElementById('archive-grid');
+      if (!txt) return;
+      txt.split('\n').map(s=>s.trim()).filter(Boolean).forEach(line=>{
+        const parts=line.split('—'); if (parts.length<2) return;
+        const term=parts[0].replace(/^\d+\.\s*/, '').trim();
+        const desc=parts.slice(1).join('—').trim();
+        if (seen.has(norm(term))) return;
+        const card=document.createElement('div'); card.className='card';
+        card.innerHTML=`<h3 style="margin:0 0 6px;font-size:15px;">${term}</h3><p style="margin:0;color:var(--text-muted);font-size:13px;">${desc}</p>`;
+        grid.appendChild(card);
+        seen.add(norm(term));
+      });
+    }).catch(()=>{});
+
+    fetch('data/divergipedia.json').then(r=>r.ok?r.json():null).then(json=>{
+      if (!json||!json.pages) return;
+      const grid=document.getElementById('archive-grid');
+      json.pages.forEach(p=>{
+        if (seen.has(norm(p.title))) return;
+        const card=document.createElement('div'); card.className='card';
+        card.innerHTML=`<h3 style=\"margin:0 0 6px;font-size:15px;\">${p.title}</h3><p style=\"margin:0;color:var(--text-muted);font-size:13px;\">${p.description||''}</p>`;
+        grid.appendChild(card);
+        seen.add(norm(p.title));
+      });
+    }).catch(()=>{});
+
+    // Attach images (from pictures.json) or generate SVG
+    function hashCode(str){ let h=0; for(let i=0;i<str.length;i++){ h=(h<<5)-h+str.charCodeAt(i); h|=0; } return Math.abs(h); }
+    function colorFromHash(h,shift=0){ const hue=(h+shift)%360; return `hsl(${hue} 75% 60%)`; }
+    function svgForTerm(term,w=1200,h=600){
+      const hash = hashCode(term);
+      const c1 = colorFromHash(hash,0), c2=colorFromHash(hash,60), c3=colorFromHash(hash,120);
+      const circles = Array.from({length:8}).map((_,i)=>{
+        const r=40+((hash+i)%120), x=(hash*(i+3))%w, y=(hash*(i+7))%h, cc=[c1,c2,c3][i%3];
+        return `<circle cx=\"${x}\" cy=\"${y}\" r=\"${r}\" fill=\"${cc}\" fill-opacity=\"0.25\"/>`;
+      }).join('');
+      return `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"${w}\" height=\"${h}\" viewBox=\"0 0 ${w} ${h}\">`+
+        `<defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"${c1}\" stop-opacity=\"0.35\"/><stop offset=\"60%\" stop-color=\"${c2}\" stop-opacity=\"0.35\"/><stop offset=\"100%\" stop-color=\"${c3}\" stop-opacity=\"0.35\"/></linearGradient></defs>`+
+        `<rect width=\"100%\" height=\"100%\" fill=\"#0b0c10\"/><rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"url(#g)\"/>`+
+        circles+
+        `<text x=\"50%\" y=\"52%\" fill=\"#fff\" font-family=\"system-ui,Segoe UI,Helvetica,Arial,sans-serif\" font-size=\"64\" font-weight=\"800\" text-anchor=\"middle\">${term}</text></svg>`;
+    }
+    function attachImage(fig, term, pictures){
+      const key = norm(term);
+      let chosen='';
+      const prefs = [key, key.split(' ')[0]];
+      for (const p of pictures){ if (prefs.some(pref=>pref && p.toLowerCase().includes(pref))) { chosen=p; break; } }
+      let img = fig.querySelector('img'); if (!img){ img=document.createElement('img'); fig.prepend(img); }
+      if (chosen) img.src = 'assets/pictures/'+chosen; else img.src = 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svgForTerm(term,1200,600));
+      img.alt = `Illustration: ${term}`;
+      img.style.width='100%'; img.style.borderRadius='12px'; img.style.border='1px solid rgba(255,255,255,0.06)';
+    }
+    function hydrateImages(pictures){
+      entriesRoot.querySelectorAll('.entry figure').forEach(fig=>{
+        const term = fig.closest('.entry')?.dataset.term || fig.closest('.entry')?.querySelector('h3')?.textContent || 'Divergify';
+        attachImage(fig, term, pictures);
+      });
+    }
+    fetch('data/pictures.json').then(r=>r.ok?r.json():[]).then(list=>Array.isArray(list)?list:[]).then(hydrateImages).catch(()=>hydrateImages([]));
+  })();
 </script>
 </body>
 </html>

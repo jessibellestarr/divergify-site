@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>The Dopamine Depot — Store</title>
+  <meta name="theme-color" content="#2A2F36"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <header class="brand-dark text-white">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="font-extrabold tracking-wider">DIVERGIFY</a>
+      <nav class="flex items-center gap-2">
+        <a href="/">Home</a><a href="/app">App</a><a href="/store" aria-current="page">Store</a><a href="/tip-jar">Tip Jar</a><a href="/divergipedia">Divergipedia</a><a href="/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12">
+    <h1 class="text-3xl font-extrabold mb-2">The Dopamine Depot</h1>
+    <p class="max-w-3xl">Our official Divergify merch. Shirts, gear, and dopamine-friendly chaos tools.</p>
+    <div class="mt-6">
+      <!-- TODO: replace with real Printful storefront URL -->
+      <a href="https://example-printful-store-url.com" target="_blank" rel="noopener noreferrer" class="btn">Open the Store</a>
+    </div>
+  </main>
+
+  <footer class="brand-dark text-white text-center py-6">
+    <p id="footer-rotator">&copy; 2025 Divergify.</p>
+    <div class="text-sm opacity-90 space-x-4 mt-2">
+      <a href="https://www.tiktok.com/@divergify.app" target="_blank" rel="noopener noreferrer" class="underline">TikTok</a>
+      <!-- TODO: replace # with real Facebook page URL -->
+      <a href="#" target="_blank" rel="noopener noreferrer" class="underline">Facebook</a>
+    </div>
+  </footer>
+  <script>
+    (function(){const m=["For brains that zig, stall, reboot, and still show up.","Powered by dopamine, defiance, and naps.","Local-first. Your brain crumbs are not for sale.","Built for the neurospicy, not the neatly aligned.","One tiny win still counts. Especially here."];let i=0;const el=document.getElementById('footer-rotator');function t(){el.textContent=m[i++%m.length]}t();setInterval(t,15000)})();
+  </script>
+</body>
+</html>

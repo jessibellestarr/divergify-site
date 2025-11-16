@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # macOS
 .DS_Store
 # Archives
@@ -7,3 +8,7 @@
 # Node/Netlify cruft (if ever added)
 .netlify
 node_modules
+=======
+# Local Netlify folder
+.netlify
+>>>>>>> 1850ab0 (Restructure site: nav tabs, store link, new pages, rotating footer; add TikTok & Facebook links; logo + buttons cleanup)
