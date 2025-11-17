@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+# Archives
+*.zip
+*.tar
+*.tar.gz
+# Node/Netlify cruft (if ever added)
+.netlify
+node_modules

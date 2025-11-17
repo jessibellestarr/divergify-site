@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The App | Divergify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="nav-logo-icon">D</div>
+      <div class="nav-title">
+        <span class="nav-title-main">Divergify</span>
+        <span class="nav-title-sub">Neurodivergent ops center</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="app.html" class="active">The App</a>
+      <a href="divergipedia.html">Divergipedia</a>
+      <a href="dopamine-depot.html">Dopamine Depot</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrapper">
+  <section class="section">
+    <div class="section-header">
+      <div class="section-kicker">Beta mode</div>
+      <h1 class="section-title">Test-driving Divergify</h1>
+    </div>
+    <div class="card">
+      <p>
+        This is the experimental, honest, slightly feral version of Divergify.
+        Things will move, break, and improve based on how real people actually
+        use it.
+      </p>
+      <p>Planned ways to access the beta:</p>
+      <ul>
+        <li><strong>Progressive Web App (PWA):</strong> install from your browser to your home screen.</li>
+        <li><strong>Android APK:</strong> direct download from this page for early testers.</li>
+      </ul>
+      <p>
+        We’re not in the app stores yet on purpose. We want to build this with
+        our community first, then scale it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="three-col">
+      <div class="card">
+        <h3>Step 1: Join the beta list</h3>
+        <p>
+          Get updates, access links, and patch notes as we roll out features.
+        </p>
+        <p style="margin-top:8px;">
+          <a href="contact.html#beta" class="btn btn-primary">Join the beta</a>
+        </p>
+      </div>
+      <div class="card">
+        <h3>Step 2: Install</h3>
+        <p>
+          Once we flip the switch:
+        </p>
+        <ul>
+          <li>iOS: “Add to Home Screen” from Safari (PWA).</li>
+          <li>Android: Install PWA or sideload APK (we’ll walk you through it).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Step 3: Tell us what breaks</h3>
+        <p>
+          Your feedback shapes what stays, what changes, and what we never,
+          ever do again.
+        </p>
+        <p style="margin-top:8px;">
+          <a href="contact.html#feedback">Send feedback →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Divergify.</div>
+    <div>Beta means “it might glitch and we still love it.”</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

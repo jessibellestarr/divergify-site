@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Contact & Beta | Divergify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="nav-logo-icon">D</div>
+      <div class="nav-title">
+        <span class="nav-title-main">Divergify</span>
+        <span class="nav-title-sub">Neurodivergent ops center</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="app.html">The App</a>
+      <a href="divergipedia.html">Divergipedia</a>
+      <a href="dopamine-depot.html">Dopamine Depot</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrapper">
+  <section class="section" id="beta">
+    <div class="section-header">
+      <div class="section-kicker">Stay in the loop</div>
+      <h1 class="section-title">Join the Divergify beta list</h1>
+    </div>
+    <div class="card">
+      <p>
+        Drop your email and we’ll send updates as the beta rolls out:
+        access links, patch notes, and occasional encouragement when
+        executive function decides to vanish.
+      </p>
+      <form action="mailto:YOUR_PROTON_EMAIL_HERE" method="post" enctype="text/plain">
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Optional: what does your brain need most right now?
+          <textarea name="needs" placeholder="Focus? Structure? Less shame? All of the above?"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Join the beta</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section" id="feedback">
+    <div class="section-header">
+      <div class="section-kicker">Help us build this</div>
+      <h2 class="section-title">Feedback, bugs & ideas</h2>
+    </div>
+    <div class="card">
+      <p>
+        Found a bug, have an idea, or want to yell (kindly) about a feature
+        that would change everything for you? Tell us.
+      </p>
+      <form action="mailto:YOUR_PROTON_EMAIL_HERE" method="post" enctype="text/plain">
+        <label>
+          Email (so we can reply)
+          <input type="email" name="email" />
+        </label>
+        <label>
+          What’s on your mind?
+          <textarea name="message" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-ghost">Send feedback</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Divergify.</div>
+    <div>Fine print: We read your messages with snacks and empathy.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

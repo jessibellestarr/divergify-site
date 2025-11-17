@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Blog | Divergify</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="nav-logo-icon">D</div>
+      <div class="nav-title">
+        <span class="nav-title-main">Divergify</span>
+        <span class="nav-title-sub">Neurodivergent ops center</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="app.html">The App</a>
+      <a href="divergipedia.html">Divergipedia</a>
+      <a href="dopamine-depot.html">Dopamine Depot</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrapper">
+  <section class="section">
+    <div class="section-header">
+      <div class="section-kicker">Build log</div>
+      <h1 class="section-title">Divergify in progress</h1>
+    </div>
+    <div class="card">
+      <p>
+        This will be our space for updates, essays, experiments, and mildly
+        unhinged observations about building tools for neurodivergent humans.
+      </p>
+      <p>
+        For now, consider this a placeholder and a promise: more is coming.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Divergify.</div>
+    <div>Work in progress, like all of us.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
