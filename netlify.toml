@@ -11,7 +11,17 @@ force = true
 
 [[redirects]]
 from = "/blog"
-to = "/blog/"
+to = "/blog/index.html"
+status = 200
+
+[[redirects]]
+from = "/blog/"
+to = "/blog/index.html"
+status = 200
+
+[[redirects]]
+from = "/blog/:slug"
+to = "/blog/:slug.html"
 status = 301
 force = true
 
