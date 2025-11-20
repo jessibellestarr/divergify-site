@@ -5,22 +5,34 @@
   <title>Welcome to Divergify: The Revolution for Chaos-Brained Geniuses | Divergify</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Divergify is a movement — a new operating system for neurodivergent brilliance. Structure without sabotage. Habits without shame. Focus without losing your spark." />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="icon" href="../assets/favicon.png" sizes="32x32" type="image/png" />
-  <link rel="apple-touch-icon" href="../assets/icon.png" />
+  <link rel="apple-touch-icon" href="../assets/logo_transparent_small.png" />
   <meta name="theme-color" content="#0b0c10" />
+  <link rel="canonical" href="https://divergify.app/blog/welcome-chaos-brained-geniuses.html" />
   <meta property="og:site_name" content="Divergify" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Welcome to Divergify: The Revolution for Chaos-Brained Geniuses Has Officially Begun" />
   <meta property="og:description" content="We’re building a new operating system for neurodivergent brains — with more swagger, science, and soul than anyone else dares to try." />
-  <meta property="og:image" content="../assets/logo_transparent.png" />
+  <meta property="og:url" content="https://divergify.app/blog/welcome-chaos-brained-geniuses.html" />
+  <meta property="og:image" content="https://divergify.app/assets/social/welcome-chaos-brained-geniuses.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Welcome to Divergify — Chaos-Brained Geniuses" />
+  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Welcome to Divergify: The Revolution for Chaos-Brained Geniuses Has Officially Begun" />
+  <meta name="twitter:description" content="We’re building a new operating system for neurodivergent brains — with more swagger, science, and soul than anyone else dares to try." />
+  <meta name="twitter:image" content="https://divergify.app/assets/social/welcome-chaos-brained-geniuses.png" />
+  <meta name="twitter:image:alt" content="Welcome to Divergify — Chaos-Brained Geniuses" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <header>
   <nav class="nav">
     <div class="nav-left">
-      <div class="nav-logo-icon">D</div>
+      <img src="../assets/logo_transparent_small.png" alt="Divergify" class="nav-logo">
       <div class="nav-title">
         <span class="nav-title-main">Divergify</span>
         <span class="nav-title-sub">Neurodivergent ops center</span>
@@ -31,20 +43,21 @@
       <a href="../about.html">About</a>
       <a href="../app.html">The App</a>
       <a href="../divergipedia.html">Divergipedia</a>
-      <a href="../dopamine-depot.html">Dopamine Depot</a>
-      <a href="../blog.html" class="active">Blog</a>
+      <a href="/shop">Dopamine Depot</a>
+      <a href="../blog/" class="active">Blog</a>
       <a href="../contact.html">Contact</a>
     </div>
   </nav>
 </header>
 
-<main class="wrapper">
+<main class="wrapper" id="main" role="main">
   <section class="section">
     <div class="section-header">
       <div class="section-kicker">Announcement</div>
       <h1 class="section-title">Welcome to Divergify: The Revolution for Chaos-Brained Geniuses Has Officially Begun</h1>
     </div>
     <div class="card" style="padding:18px 16px;">
+      <p style="color:#b3b3b3;font-size:12px;margin:0 0 8px">Published: <time datetime="2025-11-20">Nov 20, 2025</time></p>
       <p>I’m just going to say it straight: the world was not built for neurodivergent people. Not for the innovators whose minds light up like constellations. Not for the ones who solve problems sideways, diagonally, and in spirals. Definitely not for the people with 84 browser tabs open and absolutely no intention of closing a single one.</p>
       <p>And yet, we’re the ones who push humanity forward.</p>
       <p>So we built Divergify for the people the world still hasn’t figured out how to appreciate properly: the neurodivergent superminds, the chaos-brained geniuses, the folks who think faster than everyone else can process.</p>
@@ -111,7 +124,13 @@
       <p><strong>Your brain isn’t the problem. The system is. We’re here to rewrite it.</strong></p>
       <p>Welcome to Divergify. Welcome to the movement. Let’s build the future our minds were born for.</p>
 
-      <p style="margin-top:14px"><a href="../blog.html" class="btn btn-ghost">← Back to Blog</a></p>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-ghost" href="../blog/">← Back to Blog</a>
+        <a class="btn" id="share-x" href="#">Share on X</a>
+        <a class="btn" id="share-fb" href="#">Share on Facebook</a>
+        <a class="btn" id="share-li" href="#">Share on LinkedIn</a>
+        <a class="btn btn-ghost" id="copy-link" href="#">Copy link</a>
+      </div>
     </div>
   </section>
 </main>
@@ -124,7 +143,46 @@
 </footer>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  (function(){
+    const url = 'https://divergify.app/blog/welcome-chaos-brained-geniuses.html';
+    const text = 'Welcome to Divergify: The Revolution for Chaos-Brained Geniuses Has Officially Begun';
+    const utm = '?utm_source=social&utm_medium=share&utm_campaign=blog';
+    const target = '_blank';
+    document.getElementById('share-x').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url+utm)}&text=${encodeURIComponent(text)}`;
+    document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url+utm)}`;
+    document.getElementById('share-li').href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url+utm)}`;
+    document.getElementById('share-x').target = target;
+    document.getElementById('share-fb').target = target;
+    document.getElementById('share-li').target = target;
+    document.getElementById('copy-link').addEventListener('click', (e)=>{
+      e.preventDefault(); navigator.clipboard.writeText(url).then(()=>{ e.target.textContent='Copied!'; setTimeout(()=>e.target.textContent='Copy link',1500); });
+    });
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Welcome to Divergify: The Revolution for Chaos-Brained Geniuses Has Officially Begun",
+  "datePublished": "2025-11-20",
+  "dateModified": "2025-11-20",
+  "inLanguage": "en-US",
+  "author": { "@type": "Organization", "name": "Divergify" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Divergify",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://divergify.app/assets/logo_transparent_small.png",
+      "width": 512,
+      "height": 512
+    }
+  },
+  "image": [
+    "https://divergify.app/assets/social/welcome-chaos-brained-geniuses.png"
+  ],
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://divergify.app/blog/welcome-chaos-brained-geniuses.html" }
+}
 </script>
 </body>
 </html>
-
