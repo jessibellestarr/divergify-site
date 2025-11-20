@@ -2,3 +2,8 @@
 # This site is a plain static site. No build step needed.
 publish = "."
 
+[[redirects]]
+from = "/blog.html"
+to = "/blog/"
+status = 301
+force = true
