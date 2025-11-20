@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Divergify Blog</title>
+    <link>https://divergify.app/blog/</link>
+    <description>Notes from the Neurospicy Lab — real talk about productivity, burnout, and building a life that fits your neurodivergent brain.</description>
+    <language>en-us</language>
+    <ttl>60</ttl>
+
+    <item>
+      <title>Welcome to Divergify: The Revolution for Chaos-Brained Geniuses</title>
+      <link>https://divergify.app/blog/welcome-chaos-brained-geniuses.html</link>
+      <guid>https://divergify.app/blog/welcome-chaos-brained-geniuses.html</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+      <description>We’re not building an app — we’re building a movement. A new operating system for neurodivergent brilliance.</description>
+    </item>
+    <item>
+      <title>Why Neurodivergence Is the Next Evolutionary Upgrade</title>
+      <link>https://divergify.app/blog/neurodivergence-evolutionary-upgrade.html</link>
+      <guid>https://divergify.app/blog/neurodivergence-evolutionary-upgrade.html</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+      <description>Neurodivergent people aren’t the glitch in the system. We’re the upgrade chip the world hasn’t caught up to yet.</description>
+    </item>
+    <item>
+      <title>Inside Divergify: The Tools That Turn Chaos Into Momentum</title>
+      <link>https://divergify.app/blog/inside-divergify-tools.html</link>
+      <guid>https://divergify.app/blog/inside-divergify-tools.html</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+      <description>A look at Divergify’s core tools: calendar, routes, shopping mode, distraction blocker, and AI scheduling built for neurodivergent brains.</description>
+    </item>
+    <item>
+      <title>Why Divergify Uses Behavioral Science (Without Being Gross)</title>
+      <link>https://divergify.app/blog/behavioral-science-without-being-gross.html</link>
+      <guid>https://divergify.app/blog/behavioral-science-without-being-gross.html</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+      <description>Divergify uses behavioral science to support neurodivergent habits without manipulation, shame, or creepy tactics.</description>
+    </item>
+    <item>
+      <title>A Day With Divergify: How the App Supports a Neurodivergent Brain</title>
+      <link>https://divergify.app/blog/a-day-with-divergify.html</link>
+      <guid>https://divergify.app/blog/a-day-with-divergify.html</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+      <description>Walk through a full day using Divergify — from foggy mornings to late-night crash, with support at every step.</description>
+    </item>
+    <item>
+      <title>Why Divergify Exists: The Real Story Behind the App</title>
+      <link>https://divergify.app/blog/why-divergify-exists.html</link>
+      <guid>https://divergify.app/blog/why-divergify-exists.html</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 GMT</pubDate>
+      <description>Divergify wasn’t built in a boardroom. It came from the trenches: survival mode, trauma, ADHD, and a refusal to call neurodivergence a flaw.</description>
+    </item>
+  </channel>
+</rss>
+
