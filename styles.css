@@ -27,6 +27,41 @@ body {
   line-height: 1.6;
 }
 
+/* Takoda widget */
+#takoda-widget {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+}
+
+#takoda-toggle {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#takoda-toggle img { height: 28px; width: auto; display: block; }
+
+#takoda-panel {
+  position: absolute;
+  right: 0;
+  bottom: 52px;
+  width: 280px;
+  background: rgba(11,12,16,0.96);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+#takoda-panel h3 { margin: 0 0 6px; font-size: 16px; }
+#takoda-panel p { margin: 6px 0; color: var(--text-muted); font-size: 13px; }
+#takoda-panel ul { margin: 6px 0 8px 18px; padding: 0; }
+#takoda-panel li { margin: 4px 0; color: var(--text-muted); font-size: 13px; }
+
 /* Layout */
 
 .wrapper {

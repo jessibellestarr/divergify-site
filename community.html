@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Divergify Signal Station | Community</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The Divergify community and discussion hub — find your people and share your brain’s reality." />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+  <link rel="icon" href="assets/favicon.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0b0c10" />
+  <link rel="canonical" href="https://divergify.app/community.html" />
+  <meta property="og:site_name" content="Divergify" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Divergify Signal Station | Community" />
+  <meta property="og:description" content="Ask questions, share ideas, and connect with others who think in constellations, not checklists." />
+  <meta property="og:url" content="https://divergify.app/community.html" />
+  <meta property="og:image" content="https://divergify.app/assets/social/og-home.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Divergify Signal Station | Community" />
+  <meta name="twitter:description" content="The Divergify community and discussion hub — find your people and share your brain’s reality." />
+  <meta name="twitter:image" content="https://divergify.app/assets/social/og-home.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/css/concept.css" />
+</head>
+<body>
+<div id="nav-mount"></div>
+
+<main class="wrapper">
+  <section class="section" data-section="community">
+    <div class="section-header">
+      <div class="section-kicker">Community hub</div>
+      <h1 class="section-title">Divergify Signal Station</h1>
+    </div>
+    <div class="card" style="padding:18px 16px;">
+      <p>
+        If you made it here, your brain is probably running faster and louder than the world thinks it should. That is not a flaw. It just means you notice more than most people do.
+      </p>
+      <p>
+        This space is here so you can ask the questions your brain refuses to drop, share ideas at any stage, and connect with people who understand the way you think.
+      </p>
+      <p>
+        There is one rule that actually matters: respect people. If someone is dragging others backward or trying to start trouble, we will shut that shit down.
+      </p>
+      <p>
+        Introduce yourself in whatever way feels right. A sentence, a spiral, a late night brain dump. Whatever version of you shows up is welcome here.
+      </p>
+      <p>
+        We are not here to squeeze into an old system that never fit us. We are here to build what comes next.
+      </p>
+    </div>
+  </section>
+</main>
+
+<div id="footer-mount"></div>
+<script src="assets/js/layout.js?v=20251120" defer></script>
+
+<!-- Takoda helper widget -->
+<div id="takoda-widget">
+  <button id="takoda-toggle" aria-label="Open Takoda helper">
+    <img src="assets/divergify_logo_transparent_5000.png" alt="Takoda assistant" />
+  </button>
+  <div id="takoda-panel" role="dialog" aria-label="Takoda helper" aria-hidden="true">
+    <h3>Takoda</h3>
+    <p>Got a question about Divergify, the app, or this chaos we are building? Start here.</p>
+    <ul>
+      <li>What is Divergify?</li>
+      <li>How do I join the community?</li>
+      <li>When is the app coming out?</li>
+    </ul>
+    <p>This panel is a placeholder for a future assistant. For now, it is a friendly reminder that you are not doing this alone.</p>
+  </div>
+ </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("takoda-toggle");
+    const panel = document.getElementById("takoda-panel");
+    if (!toggle || !panel) return;
+    panel.style.display = "none";
+    toggle.addEventListener("click", function () {
+      panel.style.display = panel.style.display === "none" ? "block" : "none";
+      panel.setAttribute("aria-hidden", panel.style.display === "none" ? "true" : "false");
+    });
+  });
+ </script>
+</body>
+</html>
+

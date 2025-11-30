@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="/mission">Mission</a>
       <a href="/app">The App</a>
       <a href="/divergipedia">Divergipedia</a>
-      <a href="/shop">Shop</a>
+      <a href="community.html">Community</a>
+      <a href="shop.html">Shop</a>
       <a href="/blog/">Blog</a>
       <a href="/contact">Contact</a>
     </nav>
