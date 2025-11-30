@@ -1,7 +1,12 @@
 [build]
-# This site is a plain static site. No build step needed.
-publish = "."
+# Build the Gatsby site and publish the generated "public" directory.
+command = "npm run build"
+publish = "public"
 trailing_slash = "always"
+
+[build.environment]
+# Gatsby 5 supports Node 18/20. Pin to a compatible version.
+NODE_VERSION = "20"
 
 [[redirects]]
 from = "/blog.html"
