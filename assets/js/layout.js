@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navHtml = `
   <div class="nav">
     <div class="nav-left">
-      <a href="/"><img src="assets/logo_green.png" alt="Divergify logo" class="logo-img" /></a>
+      <a href="/"><img src="assets/divergify_logo_transparent_5000.png" alt="Divergify rainbow brain logo" class="logo-img" /></a>
       <div class="brand-text">
         <div class="brand-name">DIVERGIFY</div>
         <div class="brand-tagline">Organize your neurospicy chaos</div>
