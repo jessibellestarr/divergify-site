@@ -52,7 +52,7 @@
         </div>
       </div>
 
-      <div class="hero-right">
+      <div class="hero-right" data-section="gremlin">
         <div class="hero-tag">Tin Foil Hat Mode • On</div>
         <div class="hero-character">
           <div class="character-avatar">
@@ -112,7 +112,7 @@
         <p>Test-drive Divergify, track your chaos, and help us shape tools that actually work in the wild.</p>
         <p style="margin-top:8px;"><a href="app.html">App beta details →</a></p>
       </div>
-      <div class="card">
+      <div class="card" data-section="shop">
         <h3>Dopamine Depot</h3>
         <p>Merch, tools, and tiny delights for neurodivergent humans who want practicality with feral honesty.</p>
         <p style="margin-top:8px;"><a href="/shop">Visit Dopamine Depot →</a></p>
@@ -123,5 +123,27 @@
 
 <div id="footer-mount"></div>
 <script src="assets/js/layout.js?v=20251120" defer></script>
+<script>
+  const divergeFeatureConfig = {
+    showGremlin: true,
+    showCommunitySection: true,
+    showShopSection: true,
+    showDiscordBanner: false
+  };
+
+  function applyDivergeFeatureConfig() {
+    const gremlin = document.querySelector("[data-section='gremlin']");
+    const community = document.querySelector("[data-section='community']");
+    const shop = document.querySelector("[data-section='shop']");
+    const discord = document.querySelector("[data-section='discord']");
+
+    if (gremlin) gremlin.style.display = divergeFeatureConfig.showGremlin ? "" : "none";
+    if (community) community.style.display = divergeFeatureConfig.showCommunitySection ? "" : "none";
+    if (shop) shop.style.display = divergeFeatureConfig.showShopSection ? "" : "none";
+    if (discord) discord.style.display = divergeFeatureConfig.showDiscordBanner ? "" : "none";
+  }
+
+  document.addEventListener("DOMContentLoaded", applyDivergeFeatureConfig);
+</script>
 </body>
 </html>
