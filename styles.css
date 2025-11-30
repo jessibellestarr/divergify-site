@@ -261,6 +261,20 @@ header {
 .product-card h3 { margin: 4px 0 4px; font-size: 16px; }
 .product-card .tagline { color: var(--text-muted); font-size: 13px; margin: 0 0 6px; }
 
+/* Minimal button alias for external shop link */
+.button.shop-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #150a04;
+  box-shadow: var(--shadow-soft);
+  font-weight: 700;
+}
+.button.shop-button:hover { transform: translateY(-1px); box-shadow: 0 18px 32px rgba(0,0,0,0.6); }
+
 .hero-right {
   background: radial-gradient(circle at top, rgba(255,255,255,0.06) 0, rgba(10,11,20,0.98) 52%, #050608 100%);
   border-radius: 24px;
