@@ -255,6 +255,12 @@ header {
   color: var(--text-muted);
 }
 
+/* Simple horizontal product strip for shop teaser */
+.product-strip { display: flex; gap: 12px; overflow-x: auto; padding: 6px 2px 4px; scroll-snap-type: x mandatory; }
+.product-card { flex: 0 0 260px; background: rgba(11,12,16,0.96); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-sm); padding: 10px; scroll-snap-align: start; box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
+.product-card h3 { margin: 4px 0 4px; font-size: 16px; }
+.product-card .tagline { color: var(--text-muted); font-size: 13px; margin: 0 0 6px; }
+
 .hero-right {
   background: radial-gradient(circle at top, rgba(255,255,255,0.06) 0, rgba(10,11,20,0.98) 52%, #050608 100%);
   border-radius: 24px;
