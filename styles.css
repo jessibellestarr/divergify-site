@@ -271,6 +271,10 @@ header {
 }
 .cta-button:hover { background: #0EE36B; color: #051005; }
 
+/* Takota avatar styling */
+.hero-takota { text-align: center; }
+.takota-avatar { max-width: 240px; width: 100%; height: auto; display: block; margin: 0 auto 12px; }
+
 /* Simple horizontal product strip for shop teaser */
 .product-strip { display: flex; gap: 12px; overflow-x: auto; padding: 6px 2px 4px; scroll-snap-type: x mandatory; }
 .product-card { flex: 0 0 260px; background: rgba(11,12,16,0.96); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-sm); padding: 10px; scroll-snap-align: start; box-shadow: 0 8px 18px rgba(0,0,0,0.35); }
