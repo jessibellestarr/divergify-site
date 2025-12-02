@@ -211,5 +211,34 @@
 
   document.addEventListener("DOMContentLoaded", applyDivergeFeatureConfig);
 </script>
+
+<!-- Takoda floating button + panel -->
+<button id="takoda-toggle" class="takoda-floating-btn">
+    <img src="assets/takoda/takoda_eyes_neutral.svg" class="takoda-btn-icon" />
+  </button>
+
+  <div id="takoda-panel" class="takoda-panel hidden">
+    <img src="assets/takoda/takoda_brain_base.svg" class="takoda-base" />
+    <img id="takoda-expression" src="assets/takoda/takoda_eyes_neutral.svg" class="takoda-eyes" />
+    <h3 class="takoda-title">Takoda</h3>
+    <p class="takoda-sub">Your neurospicy co-pilot. Ask me the things your brain keeps dropping.</p>
+    <ul class="takoda-links">
+      <li><a href="/about">What is Divergify?</a></li>
+      <li><a href="/community">How do I join the community?</a></li>
+      <li><a href="/the-app">When is the app coming out?</a></li>
+    </ul>
+  </div>
+
+  <script>
+    (function(){
+      const btn = document.getElementById("takoda-toggle");
+      const panel = document.getElementById("takoda-panel");
+      const eyes = document.getElementById("takoda-expression");
+      if (!btn || !panel || !eyes) return;
+      btn.addEventListener("mouseenter", () => { eyes.src = "assets/takoda/takoda_eyes_curious.svg"; });
+      btn.addEventListener("mouseleave", () => { eyes.src = "assets/takoda/takoda_eyes_neutral.svg"; });
+      btn.addEventListener("click", () => { panel.classList.toggle("hidden"); });
+    })();
+  </script>
 </body>
 </html>

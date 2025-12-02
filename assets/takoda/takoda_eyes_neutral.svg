@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Neutral eyes overlay">
+  <g id="eyes" fill="#0F172A" stroke="none" shape-rendering="geometricPrecision">
+    <ellipse cx="208" cy="232" rx="24" ry="18"/>
+    <ellipse cx="304" cy="232" rx="24" ry="18"/>
+  </g>
+</svg>
+

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Curious eyes overlay">
+  <!-- Eyes: same placement/color as neutral, slight outer-corner tilt, slightly widened -->
+  <g id="eyes" fill="#0F172A" stroke="none" shape-rendering="geometricPrecision">
+    <!-- Left eye (tilted clockwise to lift outer corner) -->
+    <ellipse cx="208" cy="232" rx="26" ry="19" transform="rotate(6 208 232)"/>
+    <!-- Right eye (tilted counterclockwise to lift outer corner) -->
+    <ellipse cx="304" cy="232" rx="26" ry="19" transform="rotate(-6 304 232)"/>
+  </g>
+
+  <!-- Subtle eyebrow lift: thin, soft, minimal -->
+  <g id="brows" fill="none" stroke="#0F172A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <!-- Left brow: slightly higher on the outer (left) end -->
+    <path d="M176 202 Q 208 192 240 208"/>
+    <!-- Right brow: slightly higher on the outer (right) end -->
+    <path d="M272 208 Q 304 192 336 202"/>
+  </g>
+</svg>
+
