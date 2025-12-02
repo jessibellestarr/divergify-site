@@ -1,11 +1,19 @@
 /* Divergify concept theme: dark + green accents */
 :root {
-  --bg: #050608;
+  /* Divergify brand palette */
+  --dg-green: #00ff90;      /* Primary neon green */
+  --dg-blue:  #00b7ff;      /* Secondary Dopamine blue */
+  --dg-bg-dark: #08080a;    /* Deep charcoal background */
+  --dg-text-light: #ffffff; /* Main text */
+  --dg-text-muted: #b3b3b3; /* Muted text (confirm if different) */
+
+  /* Tokens (concept theme) mapped to brand palette */
+  --bg: var(--dg-bg-dark);
   --bg-alt: #0e1013;
-  --text-main: #f7f7f7;
-  --text-muted: #b3b3b3;
-  --accent: #57D14B;
-  --accent-soft: rgba(87, 209, 75, 0.12);
+  --text-main: var(--dg-text-light);
+  --text-muted: var(--dg-text-muted);
+  --accent: var(--dg-green);
+  --accent-soft: rgba(0, 255, 144, 0.12);
   --border-subtle: #262933;
   --radius-lg: 16px;
   --radius-xl: 24px;

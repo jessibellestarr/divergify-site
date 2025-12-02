@@ -1,11 +1,19 @@
 :root {
-  --bg: #0b0c10;
+  /* Divergify brand palette */
+  --dg-green: #00ff90;      /* Primary neon green */
+  --dg-blue:  #00b7ff;      /* Secondary Dopamine blue */
+  --dg-bg-dark: #08080a;    /* Deep charcoal background */
+  --dg-text-light: #ffffff; /* Main text */
+  --dg-text-muted: #b3b3b3; /* Muted text (confirm if different) */
+
+  /* Site tokens mapped to brand palette */
+  --bg: var(--dg-bg-dark);
   --bg-alt: #111219;
-  --accent: #ff7a3c;  /* orange */
-  --accent-soft: #ffb489;
-  --brand: #18a572;  /* green */
-  --text-main: #f5f5f5;
-  --text-muted: #b3b3b3;
+  --accent: var(--dg-green);
+  --accent-soft: rgba(0, 255, 144, 0.18);
+  --brand: var(--dg-green);
+  --text-main: var(--dg-text-light);
+  --text-muted: var(--dg-text-muted);
   --border-soft: #252737;
   --radius-lg: 18px;
   --radius-sm: 10px;
