@@ -333,24 +333,7 @@ header {
   border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* Takoda hero-side card */
-.hero_side .takoda_card {
-  display: none; /* toggled via body.takoda_open or JS */
-  background: var(--dg-card-bg);
-  border: 1px solid var(--dg-border);
-  border-radius: 16px;
-  padding: 12px;
-}
-.hero_side .takoda_card.open { display: block; }
-.takoda_header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-.takoda_avatar { width: 42px; height: 42px; border-radius: 50%; background: center/contain no-repeat url('assets/takoda/takoda_eyes_neutral.svg'); background-color: rgba(255,255,255,0.04); border: 1px solid var(--dg-border); }
-.takoda_title { font-weight: 700; }
-.takoda_intro { color: var(--text-muted); margin: 6px 0 8px; }
-.takoda_links { margin: 0; padding-left: 18px; }
-.takoda_links a { color: var(--dg-blue); text-decoration: none; }
-
-/* Show card when toggled */
-body.takoda_open .hero_side .takoda_card { display: block; }
+/* removed legacy gremlin/takoda_open styles */
 
 .hero-tag {
   position: absolute;
@@ -1027,18 +1010,73 @@ footer {
   }
 }
 
-/* Legal disclaimer */
-.legal-disclaimer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.875rem;
-  line-height: 1.5;
+/* Takoda panel */
+.takoda-card {
+  background: rgba(255,255,255,0.06);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+.toggle-row {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  margin:12px 0;
+}
+.toggle-switch {
+  width:48px;
+  height:24px;
+  appearance:none;
+  background:#444;
+  border-radius:999px;
+  position:relative;
+  cursor:pointer;
+}
+.toggle-switch:checked {
+  background:#2ECC71;
+}
+.toggle-switch::after {
+  content:"";
+  width:20px;
+  height:20px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  top:2px;
+  left:2px;
+  transition:0.25s;
+}
+.toggle-switch:checked::after {
+  left:26px;
 }
 
-.legal-disclaimer small {
-  display: block;
-  max-width: 800px;
-  margin: 0 auto;
+/* floating Takoda */
+.takoda-floating {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  z-index:9999;
+}
+
+/* Low sensory mode global overrides */
+body.low-sensory {
+  background:#f0f0f0 !important;
+  color:#333 !important;
+}
+body.low-sensory * {
+  animation:none !important;
+  transition:none !important;
+  text-shadow:none !important;
+}
+body.low-sensory .hero {
+  background:#e6e6e6 !important;
+}
+
+/* Tin foil hat mode */
+body.tinfoil #foil-hat,
+body.tinfoil #foil-hat-floating {
+  display:block !important;
 }

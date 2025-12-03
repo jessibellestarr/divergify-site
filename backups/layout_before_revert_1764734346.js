@@ -41,9 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div>Legal-ish: Please don’t steal our stuff. Make your own weird.</div>
       <div>Side quest: be kind to your past self. They got you this far.</div>
     </div>
-  </div>
-  <div class="legal-disclaimer">
-    <p><small>Divergify is not affiliated with, endorsed by, or related to DiversyFund (real estate crowdfunding platform) or Devignify (design agency). We are an independent neurodivergent productivity platform. All trademarks are property of their respective owners.</small></p>
   </div>`;
 
   if (mountNav) mountNav.innerHTML = navHtml;
@@ -52,4 +49,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const year = mountFooter.querySelector('#year');
     if (year) year.textContent = new Date().getFullYear();
   }
+});
+
+// LOW SENSORY MODE TOGGLE
+const lowSensoryToggle = document.getElementById("toggle-low-sensory");
+if (lowSensoryToggle) {
+  const saved = localStorage.getItem("dg_low_sensory") === "true";
+  if (saved) document.body.classList.add("low-sensory");
+  lowSensoryToggle.checked = saved;
+
+  lowSensoryToggle.addEventListener("change", () => {
+    if (lowSensoryToggle.checked) {
+      document.body.classList.add("low-sensory");
+      localStorage.setItem("dg_low_sensory","true");
+    } else {
+      document.body.classList.remove("low-sensory");
+      localStorage.setItem("dg_low_sensory","false");
+    }
+  });
+}
+
+// TINFOIL HAT MODE TOGGLE
+const tinToggle = document.getElementById("toggle-tinfoil");
+if (tinToggle) {
+  const savedTin = localStorage.getItem("dg_tinfoil") === "true";
+  if (savedTin) document.body.classList.add("tinfoil");
+  tinToggle.checked = savedTin;
+
+  tinToggle.addEventListener("change", () => {
+    if (tinToggle.checked) {
+      document.body.classList.add("tinfoil");
+      localStorage.setItem("dg_tinfoil","true");
+    } else {
+      document.body.classList.remove("tinfoil");
+      localStorage.setItem("dg_tinfoil","false");
+    }
+  });
+}
+
+// Floating Takoda follows cursor
+document.addEventListener("mousemove", (e) => {
+  const el = document.getElementById("takoda-floating");
+  if (!el) return;
+  el.style.transform = "translate(" + (e.clientX * 0.02) + "px," + (e.clientY * 0.02) + "px)";
 });
