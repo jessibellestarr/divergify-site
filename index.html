@@ -183,19 +183,16 @@
 <script src="assets/js/layout.js?v=20251120" defer></script>
 <script>
   const divergeFeatureConfig = {
-    showGremlin: true,
     showCommunitySection: true,
     showShopSection: true,
     showDiscordBanner: false
   };
 
   function applyDivergeFeatureConfig() {
-    const gremlin = document.querySelector("[data-section='gremlin']");
     const community = document.querySelector("[data-section='community']");
     const shop = document.querySelector("[data-section='shop']");
     const discord = document.querySelector("[data-section='discord']");
 
-    if (gremlin) gremlin.style.display = divergeFeatureConfig.showGremlin ? "" : "none";
     if (community) community.style.display = divergeFeatureConfig.showCommunitySection ? "" : "none";
     if (shop) shop.style.display = divergeFeatureConfig.showShopSection ? "" : "none";
     if (discord) discord.style.display = divergeFeatureConfig.showDiscordBanner ? "" : "none";
@@ -229,15 +226,7 @@
     });
   })();
 
-  // Takoda trigger toggles hero card visibility
-  (function(){
-    const btn = document.getElementById('takoda-toggle');
-    const card = document.getElementById('takoda_card');
-    if (!btn || !card) return;
-    const update = () => { card.classList.toggle('open', document.body.classList.contains('takoda_open')); };
-    btn.addEventListener('click', () => { document.body.classList.toggle('takoda_open'); update(); });
-    update();
-  })();
+  
 </script>
 </body>
 </html>

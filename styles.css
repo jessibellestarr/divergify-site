@@ -333,24 +333,7 @@ header {
   border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* Takoda hero-side card */
-.hero_side .takoda_card {
-  display: none; /* toggled via body.takoda_open or JS */
-  background: var(--dg-card-bg);
-  border: 1px solid var(--dg-border);
-  border-radius: 16px;
-  padding: 12px;
-}
-.hero_side .takoda_card.open { display: block; }
-.takoda_header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-.takoda_avatar { width: 42px; height: 42px; border-radius: 50%; background: center/contain no-repeat url('assets/takoda/takoda_eyes_neutral.svg'); background-color: rgba(255,255,255,0.04); border: 1px solid var(--dg-border); }
-.takoda_title { font-weight: 700; }
-.takoda_intro { color: var(--text-muted); margin: 6px 0 8px; }
-.takoda_links { margin: 0; padding-left: 18px; }
-.takoda_links a { color: var(--dg-blue); text-decoration: none; }
-
-/* Show card when toggled */
-body.takoda_open .hero_side .takoda_card { display: block; }
+/* removed legacy gremlin/takoda_open styles */
 
 .hero-tag {
   position: absolute;
