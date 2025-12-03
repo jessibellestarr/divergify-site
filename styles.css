@@ -333,6 +333,25 @@ header {
   border: 1px solid rgba(255,255,255,0.04);
 }
 
+/* Takoda hero-side card */
+.hero_side .takoda_card {
+  display: none; /* toggled via body.takoda_open or JS */
+  background: var(--dg-card-bg);
+  border: 1px solid var(--dg-border);
+  border-radius: 16px;
+  padding: 12px;
+}
+.hero_side .takoda_card.open { display: block; }
+.takoda_header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.takoda_avatar { width: 42px; height: 42px; border-radius: 50%; background: center/contain no-repeat url('assets/takoda/takoda_eyes_neutral.svg'); background-color: rgba(255,255,255,0.04); border: 1px solid var(--dg-border); }
+.takoda_title { font-weight: 700; }
+.takoda_intro { color: var(--text-muted); margin: 6px 0 8px; }
+.takoda_links { margin: 0; padding-left: 18px; }
+.takoda_links a { color: var(--dg-blue); text-decoration: none; }
+
+/* Show card when toggled */
+body.takoda_open .hero_side .takoda_card { display: block; }
+
 .hero-tag {
   position: absolute;
   top: 14px;
@@ -344,10 +363,7 @@ header {
 }
 
 .hero-character {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  margin-top: 18px;
+  display: none !important;
 }
 
 .character-avatar {
@@ -496,6 +512,29 @@ header {
   margin: 0;
   font-size: 13px;
   color: var(--text-muted);
+}
+
+/* Mode strip */
+.mode_strip { display: flex; align-items: center; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.mode_label { color: var(--text-muted); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+.mode_chip { appearance: none; border: 1px solid var(--dg-border); background: rgba(255,255,255,0.04); color: var(--text-main); padding: 6px 10px; border-radius: 999px; cursor: pointer; font-size: 12px; }
+.mode_chip.mode_active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(0,255,144,0.15) inset; }
+
+/* Modes */
+body[data-mode="default"] { }
+body[data-mode="low_sensory"] { background-color: #0b0b0f; color: var(--dg-text-light); }
+body[data-mode="low_sensory"] img,
+body[data-mode="low_sensory"] video,
+body[data-mode="low_sensory"] .confetti,
+body[data-mode="low_sensory"] .animated_element { display: none !important; }
+body[data-mode="low_sensory"] .hero p { font-size: 1.1rem; }
+
+body[data-mode="tin_foil"] .hero::after {
+  content: "Tin foil hat mode: fewer trackers, more control.";
+  display: block;
+  font-size: 0.85rem;
+  color: var(--dg-text-muted);
+  margin-top: 0.5rem;
 }
 
 /* Forms */

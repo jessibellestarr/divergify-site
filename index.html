@@ -35,7 +35,7 @@
 <main class="wrapper">
   <section class="hero">
     <div class="hero-grid">
-      <div class="hero-left">
+      <div class="hero-left hero_text">
         <div class="hero-highlight"><span>●</span> Neurodivergent brains, fully invited.</div>
         <h1>Organize your chaos.<br>Keep your spark.</h1>
         <p>
@@ -46,15 +46,30 @@
           <a href="contact.html#beta" class="btn btn-primary">Join the beta</a>
           <a href="app.html" class="btn btn-ghost">See what the app can do</a>
         </div>
+        <div class="mode_strip" aria-label="App mode previews">
+          <span class="mode_label">Try it like in the app:</span>
+          <button class="mode_chip mode_active" data-mode="default">Default</button>
+          <button class="mode_chip" data-mode="low_sensory">Low sensory</button>
+          <button class="mode_chip" data-mode="tin_foil">Tin foil hat</button>
+        </div>
         <div class="hero-meta">
           No toxic productivity. No "just try harder."<br>
           Just tools built for brains that don't do linear.
         </div>
       </div>
 
-      <div class="hero-right" data-section="gremlin">
-        <div class="hero-takota">
-          <img src="assets/takota_face_neutral.png" alt="Takota AI Assistant" class="takota-avatar">
+      <div class="hero-right hero_side" data-section="gremlin" role="complementary">
+        <div class="takoda_card" id="takoda_card">
+          <div class="takoda_header">
+            <div class="takoda_avatar" aria-hidden="true"></div>
+            <div class="takoda_title">Takoda</div>
+          </div>
+          <p class="takoda_intro">Your resident chaos guide. Start here if you have questions.</p>
+          <ul class="takoda_links">
+            <li><a href="about.html">What is Divergify?</a></li>
+            <li><a href="community.html">How do I join the community?</a></li>
+            <li><a href="app.html">When is the app coming out?</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -177,33 +192,36 @@
   document.addEventListener("DOMContentLoaded", applyDivergeFeatureConfig);
 </script>
 
-<!-- Takoda floating button + panel -->
-<button id="takoda-toggle" class="takoda-floating-btn">
-    <img src="assets/takoda/takoda_eyes_neutral.svg" class="takoda-btn-icon" />
-  </button>
+<!-- Takoda floating button -->
+<button id="takoda-toggle" class="takoda-floating-btn" aria-label="Open Takoda helper">
+  <img src="assets/takoda/takoda_eyes_neutral.svg" class="takoda-btn-icon" alt="Takoda" />
+</button>
 
-  <div id="takoda-panel" class="takoda-panel hidden">
-    <img src="assets/takoda/takoda_brain_base.svg" class="takoda-base" />
-    <img id="takoda-expression" src="assets/takoda/takoda_eyes_neutral.svg" class="takoda-eyes" />
-    <h3 class="takoda-title">Takoda</h3>
-    <p class="takoda-sub">Your neurospicy co-pilot. Ask me the things your brain keeps dropping.</p>
-    <ul class="takoda-links">
-      <li><a href="/about">What is Divergify?</a></li>
-      <li><a href="/community">How do I join the community?</a></li>
-      <li><a href="/the-app">When is the app coming out?</a></li>
-    </ul>
-  </div>
+<script>
+  // Mode persistence and chip behavior
+  (function(){
+    const saved = localStorage.getItem('dg_mode') || 'default';
+    document.body.dataset.mode = saved;
+    document.querySelectorAll('.mode_chip').forEach(chip => {
+      if (chip.dataset.mode === saved) chip.classList.add('mode_active');
+      chip.addEventListener('click', () => {
+        const mode = chip.dataset.mode;
+        document.body.dataset.mode = mode;
+        localStorage.setItem('dg_mode', mode);
+        document.querySelectorAll('.mode_chip').forEach(c => c.classList.toggle('mode_active', c.dataset.mode === mode));
+      });
+    });
+  })();
 
-  <script>
-    (function(){
-      const btn = document.getElementById("takoda-toggle");
-      const panel = document.getElementById("takoda-panel");
-      const eyes = document.getElementById("takoda-expression");
-      if (!btn || !panel || !eyes) return;
-      btn.addEventListener("mouseenter", () => { eyes.src = "assets/takoda/takoda_eyes_curious.svg"; });
-      btn.addEventListener("mouseleave", () => { eyes.src = "assets/takoda/takoda_eyes_neutral.svg"; });
-      btn.addEventListener("click", () => { panel.classList.toggle("hidden"); });
-    })();
-  </script>
+  // Takoda trigger toggles hero card visibility
+  (function(){
+    const btn = document.getElementById('takoda-toggle');
+    const card = document.getElementById('takoda_card');
+    if (!btn || !card) return;
+    const update = () => { card.classList.toggle('open', document.body.classList.contains('takoda_open')); };
+    btn.addEventListener('click', () => { document.body.classList.toggle('takoda_open'); update(); });
+    update();
+  })();
+</script>
 </body>
 </html>
