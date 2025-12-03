@@ -1035,6 +1035,7 @@ footer {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.875rem;
   line-height: 1.5;
+  text-align: center;
 }
 
 .legal-disclaimer small {
