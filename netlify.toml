@@ -1,7 +1,7 @@
 [build]
-# Build the Gatsby site and publish the generated "public" directory.
-command = "npm run build"
-publish = "public"
+# Hotfix: serve the static site from repo root to resolve 404s.
+# We will reintroduce a Gatsby build in a feature branch once pages are migrated.
+publish = "."
 trailing_slash = "always"
 
 [build.environment]
