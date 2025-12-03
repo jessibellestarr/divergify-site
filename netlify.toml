@@ -1,7 +1,7 @@
 [build]
-# Hotfix: serve the static site from repo root to resolve 404s.
-# We will reintroduce a Gatsby build in a feature branch once pages are migrated.
+# Serve the static site from repo root
 publish = "."
+command = ""
 trailing_slash = "always"
 
 [build.environment]
