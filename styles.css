@@ -1,26 +1,12 @@
 :root {
-  /* Divergify brand palette */
-  --dg-green: #00ff90;      /* Primary neon green */
-  --dg-blue:  #00b7ff;      /* Secondary Dopamine blue */
-  --dg-bg-dark: #08080a;    /* Deep charcoal background */
-  --dg-text-light: #ffffff; /* Main text */
-  --dg-text-muted: #b3b3b3; /* Muted text (confirm if different) */
-
-  /* Site tokens mapped to brand palette */
-  --bg: var(--dg-bg-dark);
-  --bg-alt: #111219;
-  --accent: var(--dg-green);
-  --accent-soft: rgba(0, 255, 144, 0.18);
-  --brand: var(--dg-green);
-  --text-main: var(--dg-text-light);
-  --text-muted: var(--dg-text-muted);
-  --border-soft: #252737;
-  /* Card + border tokens for Takoda panel */
-  --dg-card-bg: rgba(8, 8, 10, 0.92);
-  --dg-border: rgba(255, 255, 255, 0.08);
+  /* Divergify brand */
+  --deep-blue: #00466C;
+  --lime: #8BC34A;
+  --text-main: #ffffff;
+  --text-muted: #d7e1ec;
+  --border-soft: rgba(255,255,255,0.18);
   --radius-lg: 18px;
   --radius-sm: 10px;
-  --shadow-soft: 0 14px 30px rgba(0,0,0,0.4);
 }
 
 *,
@@ -31,9 +17,8 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top left, #1c1f30 0, #050608 45%, #000 100%);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--deep-blue); /* Solid Deep Blue, no gradients */
   color: var(--text-main);
   line-height: 1.6;
 }
@@ -59,12 +44,9 @@ body {
 /* Header / Nav */
 
 header {
-  border-bottom: 1px solid var(--border-soft);
-  backdrop-filter: blur(10px);
-  background: linear-gradient(to bottom, rgba(11,12,16,0.94), rgba(11,12,16,0.9));
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  border-bottom: none;
+  background: var(--deep-blue);
+  position: sticky; top: 0; z-index: 50;
 }
 
 .nav {
@@ -119,11 +101,7 @@ header {
   transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
 }
 
-.nav-links a:hover {
-  background: rgba(255,255,255,0.04);
-  color: var(--text-main);
-  transform: translateY(-1px);
-}
+.nav-links a:hover { color: #fff; text-decoration: underline; }
 
 .nav-links a.active {
   background: rgba(255,122,60,0.16);
@@ -169,9 +147,9 @@ header {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #00ff90, #00d778);
-  color: #051005;
-  box-shadow: var(--shadow-soft);
+  background: var(--lime);
+  color: #05200c;
+  border: 1px solid var(--lime);
 }
 
 .btn-primary:hover {
@@ -192,7 +170,9 @@ header {
 /* Hero / Cards */
 
 .hero {
-  padding: 32px 0 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
 }
 
 .hero-grid {
@@ -261,47 +241,44 @@ header {
 .hero-takota { text-align: center; }
 .takota-avatar { max-width: 240px; width: 100%; height: auto; display: block; margin: 0 auto 12px; }
 
-/* New floating Takoda button + panel */
-.takoda-floating-btn {
+/* New floating Takota button + panel */
+.takota-floating-btn {
   position: fixed;
-  right: 2rem;
-  bottom: 2rem;
-  width: 62px;
-  height: 62px;
-  border-radius: 50%;
-  background: var(--dg-card-bg);
-  border: 1px solid var(--dg-border);
-  box-shadow: 0 0 14px rgba(0,255,144,0.25);
-  cursor: pointer;
+  bottom: 32px;
+  right: 32px;
+  background:#8BC34A;
+  border:none;
+  border-radius:50%;
+  width:64px; height:64px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  box-shadow:0 4px 8px rgba(0,0,0,0.25);
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(6px);
 }
 
-.takoda-btn-icon { width: 42px; height: 42px; }
+.takota-btn-icon { width: 42px; height: 42px; }
 
-.takoda-panel {
-  position: fixed;
-  right: 2rem;
-  bottom: 6.5rem;
-  width: 300px;
-  padding: 1.25rem;
-  background: var(--dg-card-bg);
-  border: 1px solid var(--dg-border);
-  border-radius: 1rem;
-  box-shadow: 0 0 18px rgba(0,255,144,0.25);
+.takota-card {
+  position:fixed;
+  bottom:110px;
+  right:32px;
+  width:260px;
+  padding:16px;
+  border-radius:18px;
+  background:#003953;
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.2);
+  box-shadow:0 8px 16px rgba(0,0,0,0.3);
+  display:none;
   z-index: 9999;
-  backdrop-filter: blur(8px);
 }
 
 .hidden { display: none; }
 
-.takoda-title { color: var(--dg-text-light); margin-bottom: 0.25rem; }
-.takoda-sub { color: var(--dg-text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
-.takoda-links li { margin: 0.4rem 0; }
-.takoda-links a { color: var(--dg-blue); text-decoration: none; }
+.takota-title { color: var(--dg-text-light); margin-bottom: 0.25rem; }
+.takota-sub { color: var(--dg-text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
+.takota-links li { margin: 0.4rem 0; }
+.takota-links a { color: var(--dg-blue); text-decoration: none; }
 
 /* Simple horizontal product strip for shop teaser */
 .product-strip { display: flex; gap: 12px; overflow-x: auto; padding: 6px 2px 4px; scroll-snap-type: x mandatory; }
@@ -333,24 +310,88 @@ header {
   border: 1px solid rgba(255,255,255,0.04);
 }
 
-/* Takoda hero-side card */
-.hero_side .takoda_card {
-  display: none; /* toggled via body.takoda_open or JS */
+/* Takota hero-side card */
+.hero_side .takota_card {
+  display: none; /* toggled via body.takota_open or JS */
   background: var(--dg-card-bg);
   border: 1px solid var(--dg-border);
   border-radius: 16px;
   padding: 12px;
 }
-.hero_side .takoda_card.open { display: block; }
-.takoda_header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-.takoda_avatar { width: 42px; height: 42px; border-radius: 50%; background: center/contain no-repeat url('assets/takoda/takoda_eyes_neutral.svg'); background-color: rgba(255,255,255,0.04); border: 1px solid var(--dg-border); }
-.takoda_title { font-weight: 700; }
-.takoda_intro { color: var(--text-muted); margin: 6px 0 8px; }
-.takoda_links { margin: 0; padding-left: 18px; }
-.takoda_links a { color: var(--dg-blue); text-decoration: none; }
+.hero_side .takota_card.open { display: block; }
+.takota_header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.takota_avatar { width: 42px; height: 42px; border-radius: 50%; background: center/contain no-repeat url('assets/takota/takota_eyes_neutral.svg'); background-color: rgba(255,255,255,0.04); border: 1px solid var(--dg-border); }
+.takota_title { font-weight: 700; }
+.takota_intro { color: var(--text-muted); margin: 6px 0 8px; }
+.takota_links { margin: 0; padding-left: 18px; }
+.takota_links a { color: var(--dg-blue); text-decoration: none; }
 
 /* Show card when toggled */
-body.takoda_open .hero_side .takoda_card { display: block; }
+body.takota_open .hero_side .takota_card { display: block; }
+body.takota_open .takota-card { display:block; }
+
+/* Spacer utility */
+.dg-spacer { height: 40px; }
+
+/* Nav toggles */
+.nav-toggle {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Low-Stim and Tinfoil modes */
+body.low_stim {
+  --deep-blue: #022f48;
+  --lime: #bcd88a;
+  --text-main: #e5f3ff;
+  background: #022f48;
+  color: var(--text-main);
+}
+
+body.tinfoil {
+  --deep-blue: #0a0a0a;
+  --lime: #cccccc;
+  --text-main: #f0f0f0;
+  background: #0a0a0a;
+  color: var(--text-main);
+  filter: grayscale(100%);
+}
+
+/* Ko-fi Tip Jar ------------------------------------------------ */
+.ko-fi-container {
+  margin-top: 60px;
+  padding: 32px;
+  background: #003953;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ko-fi-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.ko-fi-subtext {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  color: #d7e1ec;
+  margin-bottom: 20px;
+}
+
+.ko-fi-widget {
+  display: flex;
+  justify-content: center;
+}
 
 .hero-tag {
   position: absolute;
@@ -514,11 +555,46 @@ body.takoda_open .hero_side .takoda_card { display: block; }
   color: var(--text-muted);
 }
 
-/* Mode strip */
-.mode_strip { display: flex; align-items: center; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-.mode_label { color: var(--text-muted); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
-.mode_chip { appearance: none; border: 1px solid var(--dg-border); background: rgba(255,255,255,0.04); color: var(--text-main); padding: 6px 10px; border-radius: 999px; cursor: pointer; font-size: 12px; }
-.mode_chip.mode_active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(0,255,144,0.15) inset; }
+/* Mode selector chips - ensure visibility */
+.mode_strip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.mode_label {
+  font-size: 0.875rem;
+  color: var(--dg-text-light);
+  margin-right: 0.5rem;
+}
+
+.mode_chip {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(57, 231, 95, 0.3);
+  background: transparent;
+  color: var(--dg-text-light);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-family: inherit;
+}
+
+.mode_chip:hover {
+  border-color: #39E75F;
+  background: rgba(57, 231, 95, 0.1);
+}
+
+.mode_chip.mode_active {
+  background: #39E75F;
+  color: #1C1F24;
+  border-color: #39E75F;
+  font-weight: 600;
+}
 
 /* Modes */
 body[data-mode="default"] { }
@@ -559,6 +635,16 @@ textarea {
   color: var(--text-main);
   font-size: 14px;
 }
+
+/* ------------------------------------------------------------
+   Brand overrides (standardized header + nav across site)
+------------------------------------------------------------- */
+.brand-text { display:flex; flex-direction:column; gap:2px; }
+.brand-name { font-family:"Poppins",system-ui,sans-serif; font-weight:600; letter-spacing:.02em; }
+.brand-tagline { font-family:"Inter",system-ui,sans-serif; font-size:12px; color:var(--text-muted); }
+.nav-right { display:flex; align-items:center; gap:12px; }
+.nav-cart { color:#fff; text-decoration:none; font-size:18px; }
+.nav-placeholder { width:28px; height:28px; border:1px solid var(--border-soft); border-radius:50%; opacity:.7; }
 
 textarea {
   resize: vertical;

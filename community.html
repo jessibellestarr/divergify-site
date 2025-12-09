@@ -20,6 +20,8 @@
   <meta name="twitter:image" content="https://divergify.app/assets/social/og-home.png" />
   
   <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -77,13 +79,13 @@ Also yes, there is probably a Dopamine Gremlin watching. Do not feed it nonsense
 <div id="footer-mount"></div>
 <script src="assets/js/layout.js?v=20251120" defer></script>
 
-<!-- Takoda helper widget -->
-<div id="takoda-widget">
-  <button id="takoda-toggle" aria-label="Open Takoda helper">
-    <img src="assets/divergify_logo_transparent_5000.png" alt="Takoda assistant" />
+<!-- Takota helper widget -->
+<div id="takota-widget">
+  <button id="takota-toggle" aria-label="Open Takota helper">
+    <img src="assets/divergify_logo_transparent_5000.png" alt="Takota assistant" />
   </button>
-  <div id="takoda-panel" role="dialog" aria-label="Takoda helper" aria-hidden="true">
-    <h3>Takoda</h3>
+  <div id="takota-panel" role="dialog" aria-label="Takota helper" aria-hidden="true">
+    <h3>Takota</h3>
     <p>Got a question about Divergify, the app, or this chaos we are building? Start here.</p>
     <ul>
       <li>What is Divergify?</li>
@@ -95,8 +97,8 @@ Also yes, there is probably a Dopamine Gremlin watching. Do not feed it nonsense
  </div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("takoda-toggle");
-    const panel = document.getElementById("takoda-panel");
+    const toggle = document.getElementById("takota-toggle");
+    const panel = document.getElementById("takota-panel");
     if (!toggle || !panel) return;
     panel.style.display = "none";
     toggle.addEventListener("click", function () {

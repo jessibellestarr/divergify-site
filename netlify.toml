@@ -1,56 +1,6 @@
 [build]
-# Serve the static site from repo root
-publish = "."
-command = ""
-trailing_slash = "always"
+  command = ""
+  publish = "."
 
 [build.environment]
-# Gatsby 5 supports Node 18/20. Pin to a compatible version.
-NODE_VERSION = "20"
-
-[[redirects]]
-from = "/blog.html"
-to = "/blog/"
-status = 301
-force = true
-
-[[redirects]]
-from = "/blog"
-to = "/blog/index.html"
-status = 200
-
-[[redirects]]
-from = "/blog/"
-to = "/blog/index.html"
-status = 200
-
-[[redirects]]
-from = "/blog/:slug"
-to = "/blog/:slug.html"
-status = 301
-force = true
-
-[[headers]]
-for = "/*"
-  [headers.values]
-  Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-  X-Content-Type-Options = "nosniff"
-  X-Frame-Options = "DENY"
-  Referrer-Policy = "strict-origin-when-cross-origin"
-  Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=()"
-  Content-Security-Policy = "default-src 'self'; img-src 'self' https: data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-ancestors 'none'"
-
-[[headers]]
-for = "/assets/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/assets/social/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-for = "/site.webmanifest"
-  [headers.values]
-  Content-Type = "application/manifest+json"
+  NODE_VERSION = "18"

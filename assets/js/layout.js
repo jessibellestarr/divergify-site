@@ -2,29 +2,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const mountNav = document.getElementById('nav-mount');
   const mountFooter = document.getElementById('footer-mount');
 
+  const SHOP_BASE = 'https://dopamine-depot.myshopify.com';
+  const CART_URL = SHOP_BASE + '/cart';
+
   const navHtml = `
   <div class="nav">
+    <!-- LEFT: Logo + Wordmark + Tagline -->
     <div class="nav-left">
-      <a href="/"><img src="assets/divergify_logo_transparent_5000.png" alt="Divergify rainbow brain logo" class="logo-img" /></a>
+      <a href="/"><img src="assets/divergify_logo_transparent_5000.png" alt="Divergify brain logo" class="logo-img" /></a>
       <div class="brand-text">
-        <div class="brand-name">DIVERGIFY</div>
-        <div class="brand-tagline">Organize your neurospicy chaos</div>
+        <div class="brand-name">Divergify</div>
+        <div class="brand-tagline">Neurodivergent Ops Center</div>
       </div>
     </div>
+
+    <!-- CENTER: Global Nav -->
     <nav class="nav-links">
       <a href="/">Home</a>
       <a href="/about">About</a>
-      <a href="/mission">Mission</a>
-      <a href="/app">The App</a>
       <a href="/divergipedia">Divergipedia</a>
-      <a href="community.html">Community</a>
-      <a href="shop.html">Shop</a>
-      <a href="/blog/">Blog</a>
-      <a href="/contact">Contact</a>
+      <a href="/app">The App</a>
+      <a href="/shop.html">Dopamine Depot</a>
+      <a href="${SHOP_BASE}/collections/all" target="_blank" rel="noopener">Shop</a>
     </nav>
-    <div class="nav-cta">
-      <div class="nav-pill"><span class="nav-pill-dot"></span> Beta cohort forming</div>
-      <a href="/contact#beta" class="nav-button">Join the beta <span class="chevron">↗</span></a>
+
+    <!-- RIGHT: Cart + Toggles + Takota -->
+    <div class="nav-right">
+      <button id="toggle-low-stim" class="nav-toggle" title="Low-Stim mode">🌙</button>
+      <button id="toggle-tinfoil" class="nav-toggle" title="Tinfoil Hat mode">🧻</button>
+      <a class="nav-cart" href="${CART_URL}" aria-label="Cart">🛒</a>
+      <div id="nav-takota" class="nav-placeholder" title="Takota placeholder"></div>
     </div>
   </div>`;
 
@@ -47,6 +54,19 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>`;
 
   if (mountNav) mountNav.innerHTML = navHtml;
+  // Wire up toggles after nav is mounted
+  const lowStimToggle = document.getElementById("toggle-low-stim");
+  const tinFoilToggle = document.getElementById("toggle-tinfoil");
+  if (lowStimToggle) {
+    lowStimToggle.addEventListener("click", () => {
+      document.body.classList.toggle("low_stim");
+    });
+  }
+  if (tinFoilToggle) {
+    tinFoilToggle.addEventListener("click", () => {
+      document.body.classList.toggle("tinfoil");
+    });
+  }
   if (mountFooter) {
     mountFooter.innerHTML = footerHtml;
     const year = mountFooter.querySelector('#year');

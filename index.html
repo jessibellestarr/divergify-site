@@ -36,6 +36,8 @@
   <meta name="twitter:image" content="https://divergify.app/logo_nomoto.png">
 
   <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -77,13 +79,13 @@
       </div>
 
       <div class="hero-right hero_side" data-section="gremlin" role="complementary">
-        <div class="takoda_card" id="takoda_card">
-          <div class="takoda_header">
-            <div class="takoda_avatar" aria-hidden="true"></div>
-            <div class="takoda_title">Takoda</div>
+        <div class="takota_card" id="takota_card">
+          <div class="takota_header">
+            <div class="takota_avatar" aria-hidden="true"></div>
+            <div class="takota_title">Takota</div>
           </div>
-          <p class="takoda_intro">Your resident chaos guide. Start here if you have questions.</p>
-          <ul class="takoda_links">
+          <p class="takota_intro">Your resident chaos guide. Start here if you have questions.</p>
+          <ul class="takota_links">
             <li><a href="about.html">What is Divergify?</a></li>
             <li><a href="community.html">How do I join the community?</a></li>
             <li><a href="app.html">When is the app coming out?</a></li>
@@ -92,6 +94,8 @@
       </div>
     </div>
   </section>
+
+  <div class="dg-spacer"></div>
 
   
 
@@ -189,7 +193,7 @@
   <div id="footer-mount"></div>
   
 </footer>
-<script src="assets/js/layout.js?v=20251120" defer></script>
+  <script src="assets/js/layout.js?v=20251120" defer></script>
 <script>
   const divergeFeatureConfig = {
     showGremlin: true,
@@ -213,36 +217,106 @@
   document.addEventListener("DOMContentLoaded", applyDivergeFeatureConfig);
 </script>
 
-<!-- Takoda floating button -->
-<button id="takoda-toggle" class="takoda-floating-btn" aria-label="Open Takoda helper">
-  <img src="assets/takoda/takoda_eyes_neutral.svg" class="takoda-btn-icon" alt="Takoda" />
+<!-- Takota floating button -->
+<button id="takota-toggle" class="takota-floating-btn" aria-label="Open Takota">
+  <img src="assets/takota/takota_eyes_neutral.svg" class="takota-btn-icon" alt="Takota" />
 </button>
 
+<div id="takota-card" class="takota-card" aria-hidden="true">
+  <div class="takota-header" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+    <img src="assets/takota/takota_eyes_curious.svg" class="takota-avatar" alt="Takota" style="width:28px; height:28px;" />
+    <div class="takota-title" style="font-weight:700;">Takota</div>
+  </div>
+  <p class="takota-text" style="margin:6px 0 10px;">Your resident chaos guide. Tap anything if you’re lost.</p>
+  <ul class="takota-links" style="margin:0; padding-left:18px; display:grid; gap:4px;">
+    <li><a href="/about">What is Divergify?</a></li>
+    <li><a href="/divergipedia">Browse Divergipedia</a></li>
+    <li><a href="/shop.html">Go to Dopamine Depot</a></li>
+  </ul>
+</div>
+
 <script>
-  // Mode persistence and chip behavior
-  (function(){
+(function() {
+  console.log('🧠 Divergify mode selector initializing...');
+  
+  try {
+    // Load saved mode or default
     const saved = localStorage.getItem('dg_mode') || 'default';
+    console.log('📦 Loaded mode from storage:', saved);
+    
+    // Set body data attribute
     document.body.dataset.mode = saved;
-    document.querySelectorAll('.mode_chip').forEach(chip => {
-      if (chip.dataset.mode === saved) chip.classList.add('mode_active');
-      chip.addEventListener('click', () => {
-        const mode = chip.dataset.mode;
+    
+    // Activate the correct chip
+    const chips = document.querySelectorAll('.mode_chip');
+    console.log('🎯 Found chips:', chips.length);
+    
+    chips.forEach(chip => {
+      // Set initial active state
+      if (chip.dataset.mode === saved) {
+        chip.classList.add('mode_active');
+        console.log('✅ Activated chip:', chip.dataset.mode);
+      }
+      
+      // Click handler
+      chip.addEventListener('click', function(e) {
+        e.preventDefault();
+        const mode = this.dataset.mode;
+        console.log('🖱️ Chip clicked:', mode);
+        
+        // Update body
         document.body.dataset.mode = mode;
-        localStorage.setItem('dg_mode', mode);
-        document.querySelectorAll('.mode_chip').forEach(c => c.classList.toggle('mode_active', c.dataset.mode === mode));
+        
+        // Save to localStorage
+        try {
+          localStorage.setItem('dg_mode', mode);
+          console.log('💾 Saved to localStorage:', mode);
+        } catch (err) {
+          console.warn('⚠️ localStorage blocked:', err);
+        }
+        
+        // Update chip states
+        chips.forEach(c => {
+          c.classList.toggle('mode_active', c.dataset.mode === mode);
+        });
       });
     });
-  })();
+    
+    console.log('✅ Mode selector initialized');
+    
+  } catch (err) {
+    console.error('❌ Mode selector error:', err);
+  }
+})();
 
-  // Takoda trigger toggles hero card visibility
-  (function(){
-    const btn = document.getElementById('takoda-toggle');
-    const card = document.getElementById('takoda_card');
-    if (!btn || !card) return;
-    const update = () => { card.classList.toggle('open', document.body.classList.contains('takoda_open')); };
-    btn.addEventListener('click', () => { document.body.classList.toggle('takoda_open'); update(); });
-    update();
-  })();
-</script>
-</body>
-</html>
+// Takota floating card toggle
+(function(){
+  const btn = document.getElementById("takota-toggle");
+  const card = document.getElementById("takota-card");
+  if (!btn || !card) return;
+  btn.addEventListener("click", () => {
+    const open = card.getAttribute("aria-hidden") === "true";
+    card.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("takota_open", open);
+  });
+})();
+  </script>
+
+  <div class="ko-fi-container">
+    <h3 class="ko-fi-title">Support Divergify</h3>
+    <p class="ko-fi-subtext">
+      If this work helps you, fuels you, or keeps your chaos brain afloat, 
+      you can toss a tip our way.
+    </p>
+
+    <div class="ko-fi-widget">
+      <script src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"></script>
+      <script>
+        kofiWidget2.init('Support Us on Ko-fi', '#8BC34A', 'divergify');
+        kofiWidget2.draw();
+      </script>
+    </div>
+  </div>
+
+  </body>
+  </html>
