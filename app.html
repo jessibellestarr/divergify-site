@@ -123,6 +123,17 @@
     <p><small>Divergify is not affiliated with, endorsed by, or related to DiversyFund (real estate crowdfunding platform) or Devignify (design agency). We are an independent neurodivergent productivity platform. All trademarks are property of their respective owners.</small></p>
   </div>
 </footer>
+<section class="section" style="max-width: 800px; margin: 24px auto; padding: 0 16px;">
+  <div class="card" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 14px;">
+    <h3 style="margin: 6px 0 8px;">Ask Takota</h3>
+    <form class="takota-chat" aria-label="Ask Takota" style="display:flex; gap:8px;">
+      <input type="text" placeholder="Ask Takota…" required
+             style="flex:1; padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color:#fff;" />
+      <button type="submit" style="background:#8BC34A; color:#05200c; border:none; border-radius:10px; padding:8px 12px; cursor:pointer;">Ask</button>
+    </form>
+    <div class="takota-reply" aria-live="polite" style="margin-top:6px; color:#fff; font-size:0.95rem;"></div>
+  </div>
+</section>
 <div class="ko-fi-container">
   <h3 class="ko-fi-title">Support Divergify</h3>
   <p class="ko-fi-subtext">
@@ -140,6 +151,43 @@
 </div>
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script>
+  // Minimal Takota chat binding for this page
+  (function(){
+    const endpoint = '/.netlify/functions/takota-chat';
+    let history = [];
+    async function askTakota(message){
+      const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type':'application/json' }, body: JSON.stringify({ message, history }) });
+      let json; try { json = await res.json(); } catch { json = { error: 'Invalid response' }; }
+      if (!res.ok || json.error) throw new Error(json.error || `HTTP ${res.status}`);
+      return json;
+    }
+    document.querySelectorAll('.takota-chat').forEach((form) => {
+      const input = form.querySelector('input[type="text"]');
+      const btn = form.querySelector('button');
+      const reply = form.parentElement.querySelector('.takota-reply');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const msg = (input?.value || '').trim();
+        if (!msg) return;
+        if (input) input.disabled = true;
+        if (btn) btn.disabled = true;
+        if (reply) reply.textContent = 'Thinking…';
+        try {
+          const data = await askTakota(msg);
+          const r = data.reply || '';
+          if (reply) reply.textContent = r;
+          history.push({ role: 'user', content: msg }, { role: 'assistant', content: r });
+        } catch (err) {
+          if (reply) reply.textContent = 'Sorry, I had trouble. Try again.';
+        } finally {
+          if (input) { input.disabled = false; input.value = ''; input.focus(); }
+          if (btn) btn.disabled = false;
+        }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
