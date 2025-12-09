@@ -222,7 +222,7 @@
   <img src="assets/takota/takota_eyes_neutral.svg" class="takota-btn-icon" alt="Takota" />
 </button>
 
-<div id="takota-card" class="takota-card" aria-hidden="true">
+  <div id="takota-card" class="takota-card" aria-hidden="true">
   <div class="takota-header" style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
     <img src="assets/takota/takota_eyes_curious.svg" class="takota-avatar" alt="Takota" style="width:28px; height:28px;" />
     <div class="takota-title" style="font-weight:700;">Takota</div>
@@ -233,7 +233,14 @@
     <li><a href="/divergipedia">Browse Divergipedia</a></li>
     <li><a href="/shop.html">Go to Dopamine Depot</a></li>
   </ul>
-</div>
+
+  <form id="takota-chat" class="takota-chat" aria-label="Ask Takota" style="margin-top:10px; display:flex; gap:8px;">
+    <input id="takota-input" type="text" placeholder="Ask Takota…" required
+           style="flex:1; padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color:#fff;" />
+    <button type="submit" class="takota-send" style="background:#8BC34A; color:#05200c; border:none; border-radius:10px; padding:8px 12px; cursor:pointer;">Ask</button>
+  </form>
+  <div id="takota-reply" class="takota-reply" aria-live="polite" style="margin-top:6px; color:#fff; font-size:0.95rem;"></div>
+  </div>
 
 <script>
 (function() {
@@ -289,17 +296,58 @@
   }
 })();
 
-// Takota floating card toggle
-(function(){
-  const btn = document.getElementById("takota-toggle");
-  const card = document.getElementById("takota-card");
-  if (!btn || !card) return;
-  btn.addEventListener("click", () => {
-    const open = card.getAttribute("aria-hidden") === "true";
-    card.setAttribute("aria-hidden", open ? "false" : "true");
-    document.body.classList.toggle("takota_open", open);
-  });
-})();
+  // Takota floating card toggle
+  (function(){
+    const btn = document.getElementById("takota-toggle");
+    const card = document.getElementById("takota-card");
+    if (!btn || !card) return;
+    btn.addEventListener("click", () => {
+      const open = card.getAttribute("aria-hidden") === "true";
+      card.setAttribute("aria-hidden", open ? "false" : "true");
+      document.body.classList.toggle("takota_open", open);
+    });
+  })();
+
+  // Takota chat wiring (calls Netlify function)
+  (function(){
+    const form = document.getElementById('takota-chat');
+    const input = document.getElementById('takota-input');
+    const reply = document.getElementById('takota-reply');
+    const endpoint = '/.netlify/functions/takota-chat';
+    let history = [];
+
+    async function askTakota(message){
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message, history })
+      });
+      let json; try { json = await res.json(); } catch { json = { error: 'Invalid response' }; }
+      if (!res.ok || json.error) throw new Error(json.error || `HTTP ${res.status}`);
+      return json;
+    }
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = (input?.value || '').trim();
+      if (!msg) return;
+      const btn = form.querySelector('button');
+      if (input) input.disabled = true;
+      if (btn) btn.disabled = true;
+      if (reply) reply.textContent = 'Thinking…';
+      try {
+        const data = await askTakota(msg);
+        const r = data.reply || '';
+        if (reply) reply.textContent = r;
+        history.push({ role: 'user', content: msg }, { role: 'assistant', content: r });
+      } catch (err) {
+        if (reply) reply.textContent = 'Sorry, I had trouble. Try again.';
+      } finally {
+        if (input) { input.disabled = false; input.value = ''; input.focus(); }
+        if (btn) btn.disabled = false;
+      }
+    });
+  })();
   </script>
 
   <div class="ko-fi-container">
