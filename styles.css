@@ -374,6 +374,52 @@ body.tinfoil {
   margin-right: auto;
 }
 
+.egg-badge {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.egg-panel {
+  position: fixed;
+  left: 24px;
+  bottom: 76px;
+  width: 300px;
+  max-width: calc(100vw - 48px);
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 14px;
+  padding: 12px;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  z-index: 9999;
+}
+
+.egg-panel h4 {
+  margin: 0 0 8px;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.egg-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.egg-list li { display: flex; align-items: start; gap: 8px; font-size: 13px; }
+.egg-list li .egg-check { width: 18px; text-align: center; }
+.egg-list li .egg-text { opacity: .92; }
+.egg-list li.locked .egg-text { opacity: .6; }
+
 .ko-fi-title {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;

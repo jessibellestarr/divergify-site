@@ -197,9 +197,9 @@
   </section>
 </main>
 
-<div id="footer-mount"></div>
-<script src="assets/js/layout.js?v=20251120" defer></script>
-<script>
+  <div id="footer-mount"></div>
+  <script src="assets/js/layout.js?v=20251120" defer></script>
+  <script>
   (function(){
     const entriesRoot = document.getElementById('entries');
     const toc = document.getElementById('toc-list');
@@ -326,6 +326,95 @@
     }
     fetch('data/pictures.json').then(r=>r.ok?r.json():[]).then(list=>Array.isArray(list)?list:[]).then(hydrateImages).catch(()=>hydrateImages([]));
   })();
-</script>
+  </script>
+
+  <!-- Library Achievements (Easter Eggs) -->
+  <div id="egg-badge" class="egg-badge" title="Library achievements" aria-label="Library achievements" role="button" style="display:none;">📚</div>
+  <div id="egg-panel" class="egg-panel" style="display:none;">
+    <h4>Library Achievements</h4>
+    <ul id="egg-list" class="egg-list"></ul>
+  </div>
+  <script>
+    (function(){
+      const badge = document.getElementById('egg-badge');
+      const panel = document.getElementById('egg-panel');
+      const list = document.getElementById('egg-list');
+      const storeKey = 'dg_eggs_session';
+      const eggs = [
+        { id:'browse-letters', title:'Stacks Navigator', text:'Visited 3 different letter sections.' },
+        { id:'search-used', title:'Index Whisperer', text:'Used the Divergipedia search.' },
+        { id:'bottom-reached', title:'Deep Diver', text:'Reached the end of the page.' },
+        { id:'back-to-top', title:'Gravity Hacker', text:'Used a “Back to top” link.' },
+        { id:'low-stim', title:'Night Ops', text:'Enabled Low‑Stim mode.' },
+        { id:'tinfoil', title:'Tin Foil Certified', text:'Enabled Tin Foil Hat mode.' },
+        { id:'zero-draft', title:'Zero Hero', text:'Found the “Zero Draft” entry.' },
+      ];
+      const unlocked = new Set(JSON.parse(sessionStorage.getItem(storeKey) || '[]'));
+
+      function save(){ sessionStorage.setItem(storeKey, JSON.stringify([...unlocked])); }
+      function unlock(id){ if (!unlocked.has(id)) { unlocked.add(id); save(); render(); pulseBadge(); } }
+      function pulseBadge(){ if (!badge) return; badge.style.display='flex'; badge.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:400}); }
+      function render(){
+        if (!list) return;
+        list.innerHTML = '';
+        eggs.forEach(e => {
+          const li = document.createElement('li');
+          const ok = unlocked.has(e.id);
+          li.className = ok ? 'unlocked' : 'locked';
+          li.innerHTML = `<span class="egg-check">${ok?'✓':'•'}</span><div class="egg-text"><strong>${e.title}</strong><br>${e.text}</div>`;
+          list.appendChild(li);
+        });
+      }
+      render();
+
+      // Toggle panel
+      let open = false;
+      function setOpen(v){ open=v; if (panel) panel.style.display = v?'block':'none'; if (badge) badge.style.display = 'flex'; }
+      badge?.addEventListener('click', ()=> setOpen(!open));
+
+      // Triggers
+      // 1) Browse letters — when 3 distinct header anchors are visited
+      const seenLetters = new Set();
+      document.getElementById('alpha')?.addEventListener('click', (e)=>{
+        const a = e.target.closest('a'); if (!a) return;
+        const m = (a.getAttribute('href')||'').match(/#letter-([a-z])/);
+        if (m) { seenLetters.add(m[1]); if (seenLetters.size >= 3) unlock('browse-letters'); }
+      });
+
+      // 2) Search used
+      document.getElementById('toc-search')?.addEventListener('input', (e)=>{
+        const val = (e.target.value||'').trim(); if (val) unlock('search-used');
+      });
+
+      // 3) Reached bottom
+      function onScroll(){
+        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 40)) { unlock('bottom-reached'); window.removeEventListener('scroll', onScroll); }
+      }
+      window.addEventListener('scroll', onScroll);
+
+      // 4) Back to top clicked
+      document.getElementById('entries')?.addEventListener('click', (e)=>{
+        const a = e.target.closest('a.back-to-top'); if (a) unlock('back-to-top');
+      });
+
+      // 5) Mode toggles from header
+      document.addEventListener('click', (e)=>{
+        if (e.target && e.target.id === 'toggle-low-stim') setTimeout(()=>{ if (document.body.classList.contains('low_stim')) unlock('low-stim'); }, 0);
+        if (e.target && e.target.id === 'toggle-tinfoil') setTimeout(()=>{ if (document.body.classList.contains('tinfoil')) unlock('tinfoil'); }, 0);
+      });
+
+      // 6) Zero Draft visible
+      const zd = document.getElementById('zero-draft');
+      if (zd && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver((ents)=>{
+          ents.forEach(en=>{ if (en.isIntersecting) { unlock('zero-draft'); io.disconnect(); } });
+        }, { rootMargin: '0px 0px -20% 0px' });
+        io.observe(zd);
+      }
+
+      // Show badge if any unlocked; otherwise keep hidden until first unlock
+      if (unlocked.size) { badge.style.display='flex'; }
+    })();
+  </script>
 </body>
 </html>
