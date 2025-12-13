@@ -43,9 +43,27 @@
       <a href="../about.html">About</a>
       <a href="../app.html">The App</a>
       <a href="../divergipedia.html">Divergipedia</a>
-      <a href="/shop">Dopamine Depot</a>
+      <a href="https://dopamine-depot-2.myshopify.com" target="_blank" rel="noopener">Dopamine Depot</a>
       <a href="../blog/" class="active">Blog</a>
       <a href="../contact.html">Contact</a>
+    </div>
+    <div class="nav-right" style="display:flex; align-items:center;">
+      <div class="feature-toggles">
+        <label class="toggle-wrapper" data-takota="Low Stim Mode. Removes visual noise, animations, and bright colors. For when the world is too loud.">
+          <div class="switch">
+            <input type="checkbox" id="toggle-low-stim" onchange="toggleFeature('low-stim')">
+            <span class="slider"></span>
+          </div>
+          <span class="toggle-icon">☁️</span>
+        </label>
+        <label class="toggle-wrapper" data-takota="Tin Foil Hat Mode. Blocks 5G, bad vibes, and algorithmic tracking. (Simulation only).">
+          <div class="switch">
+            <input type="checkbox" id="toggle-tinfoil" onchange="toggleFeature('tinfoil')">
+            <span class="slider"></span>
+          </div>
+          <span class="toggle-icon">🧢</span>
+        </label>
+      </div>
     </div>
   </nav>
 </header>
@@ -150,6 +168,6 @@
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://divergify.app/blog/behavioral-science-without-being-gross.html" }
 }
 </script>
+<script src="../assets/js/modes.js" defer></script>
 </body>
 </html>
-

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mountNav = document.getElementById('nav-mount');
   const mountFooter = document.getElementById('footer-mount');
 
-  const SHOP_BASE = 'https://dopamine-depot.myshopify.com';
+  const SHOP_BASE = 'https://dopamine-depot-2.myshopify.com';
   const CART_URL = SHOP_BASE + '/cart';
 
   const navHtml = `
@@ -22,14 +22,27 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="/about">About</a>
       <a href="/divergipedia">Divergipedia</a>
       <a href="/app">The App</a>
-      <a href="/shop.html">Dopamine Depot</a>
-      <a href="${SHOP_BASE}/collections/all" target="_blank" rel="noopener">Shop</a>
+      <a href="${SHOP_BASE}" target="_blank" rel="noopener">Dopamine Depot</a>
     </nav>
 
-    <!-- RIGHT: Cart + Toggles + Takota -->
-    <div class="nav-right">
-      <button id="toggle-low-stim" class="nav-toggle" title="Low-Stim mode">🌙</button>
-      <button id="toggle-tinfoil" class="nav-toggle" title="Tinfoil Hat mode">🧻</button>
+    <!-- RIGHT: Cart + Feature Toggles + Takota -->
+    <div class="nav-right" style="display:flex; align-items:center;">
+      <div class="feature-toggles">
+        <label class="toggle-wrapper" data-takota="Low Stim Mode. Removes visual noise, animations, and bright colors. For when the world is too loud.">
+          <div class="switch">
+            <input type="checkbox" id="toggle-low-stim" onchange="toggleFeature('low-stim')">
+            <span class="slider"></span>
+          </div>
+          <span class="toggle-icon">☁️</span>
+        </label>
+        <label class="toggle-wrapper" data-takota="Tin Foil Hat Mode. Blocks 5G, bad vibes, and algorithmic tracking. (Simulation only).">
+          <div class="switch">
+            <input type="checkbox" id="toggle-tinfoil" onchange="toggleFeature('tinfoil')">
+            <span class="slider"></span>
+          </div>
+          <span class="toggle-icon">🧢</span>
+        </label>
+      </div>
       <a class="nav-cart" href="${CART_URL}" aria-label="Cart">🛒</a>
       <div id="nav-takota" class="nav-placeholder" title="Takota placeholder"></div>
     </div>
@@ -54,17 +67,44 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>`;
 
   if (mountNav) mountNav.innerHTML = navHtml;
-  // Wire up toggles after nav is mounted
-  const lowStimToggle = document.getElementById("toggle-low-stim");
-  const tinFoilToggle = document.getElementById("toggle-tinfoil");
-  if (lowStimToggle) {
-    lowStimToggle.addEventListener("click", () => {
-      document.body.classList.toggle("low_stim");
+  // Initial mode from storage (persist across pages)
+  try {
+    const savedMode = localStorage.getItem('dg_mode');
+    const savedLow = localStorage.getItem('dg_low_stim') === 'true';
+    const savedTin = localStorage.getItem('dg_tinfoil') === 'true';
+    if (savedMode === 'low_sensory' || savedLow) document.body.classList.add('low_stim');
+    if (savedMode === 'tin_foil' || savedTin) document.body.classList.add('tinfoil');
+  } catch {}
+
+  // Wire up toggles after nav is mounted (persist state)
+  const lowStimToggle = document.getElementById('toggle-low-stim');
+  const tinFoilToggle = document.getElementById('toggle-tinfoil');
+
+  function syncAria() {
+    if (lowStimToggle) lowStimToggle.setAttribute('aria-pressed', String(document.body.classList.contains('low_stim')));
+    if (tinFoilToggle) tinFoilToggle.setAttribute('aria-pressed', String(document.body.classList.contains('tinfoil')));
+  }
+  syncAria();
+
+  if (lowStimToggle && !lowStimToggle.dataset.bound) {
+    lowStimToggle.dataset.bound = '1';
+    lowStimToggle.addEventListener('click', () => {
+      const on = !document.body.classList.contains('low_stim');
+      document.body.classList.toggle('low_stim', on);
+      try { localStorage.setItem('dg_low_stim', String(on)); } catch {}
+      // Also reflect into dg_mode for pages using it
+      try { localStorage.setItem('dg_mode', on ? 'low_sensory' : 'default'); } catch {}
+      syncAria();
     });
   }
-  if (tinFoilToggle) {
-    tinFoilToggle.addEventListener("click", () => {
-      document.body.classList.toggle("tinfoil");
+  if (tinFoilToggle && !tinFoilToggle.dataset.bound) {
+    tinFoilToggle.dataset.bound = '1';
+    tinFoilToggle.addEventListener('click', () => {
+      const on = !document.body.classList.contains('tinfoil');
+      document.body.classList.toggle('tinfoil', on);
+      try { localStorage.setItem('dg_tinfoil', String(on)); } catch {}
+      if (on) { try { localStorage.setItem('dg_mode', 'tin_foil'); } catch {} }
+      syncAria();
     });
   }
   if (mountFooter) {
