@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="nav">
     <!-- LEFT: Logo + Wordmark + Tagline -->
     <div class="nav-left">
-      <a href="/"><img src="assets/divergify_logo_transparent_5000.png" alt="Divergify brain logo" class="logo-img" /></a>
+      <a href="/"><img src="/assets/divergify_logo_transparent_5000.png" alt="Divergify brain logo" class="logo-img" /></a>
       <div class="brand-text">
         <div class="brand-name">Divergify</div>
         <div class="brand-tagline">Neurodivergent Ops Center</div>
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/divergipedia">Divergipedia</a>
+      <a href="/blog/">Blog</a>
       <a href="/app">The App</a>
       <a href="${SHOP_BASE}" target="_blank" rel="noopener">Dopamine Depot</a>
     </nav>
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerHtml = `
   <div class="footer">
     <div class="footer-left">
-      <img src="assets/logo_green.png" alt="Divergify logo" class="footer-logo" />
+      <img src="/assets/logo_green.png" alt="Divergify logo" class="footer-logo" />
       <div>
         <div>© <span id="year"></span> Divergify.</div>
         <div class="footer-tagline">Built for brains that don’t do beige.</div>

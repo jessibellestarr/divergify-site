@@ -1,420 +1,475 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <title>Divergipedia | Divergify</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="assets/css/concept.css" />
 </head>
+
 <body>
-<div id="nav-mount"></div>
 
-<main class="wrapper">
-  <section class="section">
-    <div class="section-header">
-      <div class="section-kicker">Our shared language</div>
-      <h1 class="section-title">Divergipedia</h1>
-      <p class="lead">A 100-term lexicon celebrating neurodivergent brilliance, playful productivity, and the Divergify community.</p>
-    </div>
+<section class="section">
+  <div class="section-header">
+    <h1 class="section-title">Divergipedia</h1>
 
-    <div class="encyclopedia-grid">
-      <aside class="toc">
-        <h2>Browse</h2>
-        <input id="toc-search" class="toc-search" type="search" placeholder="Search terms..." aria-label="Search Divergipedia" />
-        <div class="alpha" id="alpha"></div>
-        <div class="toc-list" id="toc-list"></div>
-      </aside>
+    <p class="lead">
+      Divergipedia is a living reference of original terms that name real,
+      repeatable cognitive and behavioral patterns.
+    </p>
 
-      <section id="entries" aria-label="Divergipedia entries">
-        <h2 id="letter-b" class="letter-divider">B</h2>
+    <p>
+      These terms exist to compress complexity, increase clarity, and give people
+      usable language for how their brains actually behave.
+    </p>
 
-        <article id="brain-bounce" class="entry highlight-target" data-term="Brain Bounce">
-          <h3>Brain Bounce</h3>
-          <p>Brain Bounce captures that lively, rapid-fire attention shift where your mind springs between ideas with electric momentum. With practice, it becomes a superpower: channel it into short, timed sessions or note captures to harness the bounce without exhaustion. Embrace it as a source of vitality that turns what others call distraction into a fountain of creativity. With gentle structure, Brain Bounce becomes a controlled rhythm that propels you forward.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <article id="brain-buffer" class="entry" data-term="Brain Buffer">
-          <h3>Brain Buffer</h3>
-          <p>Brain Buffer involves intentionally scheduling cushion time before and after intense activities to decompress and recalibrate, acting as a protective layer against cognitive overload. This is crucial for neurodivergents who process stimuli deeply, preventing burnout by providing space for transitions.</p>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <article id="brainstorm-sprint" class="entry" data-term="Brainstorm Sprint">
-          <h3>Brainstorm Sprint</h3>
-          <p>A Brainstorm Sprint is a high-speed, time-bound session dedicated to generating ideas rapidly—capturing brilliance before it fades. Set a 10–15 minute timer and let thoughts flow without judgment, aiming for quantity over quality to leverage natural creativity surges. Follow with a quick sort to refine the gems and turn them into action.</p>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-c" class="letter-divider">C</h2>
-        <article id="calm-cache" class="entry" data-term="Calm Cache">
-          <h3>Calm Cache</h3>
-          <p>Calm Cache is a personal reservoir of calming elements—sounds, scents, textures, or visuals—to draw from when overwhelm spikes. Keep it accessible and varied. This habit provides quick regulation options to quiet static and restore clarity.</p>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <article id="circuit-break-breath" class="entry" data-term="Circuit Break Breath">
-          <h3>Circuit Break Breath</h3>
-          <p>Circuit Break Breath is a concise breathing exercise designed to interrupt overwhelm—like cutting the power to escalating stress and resetting your system. It’s a quick tool to regain control during sensory or emotional spikes.</p>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-d" class="letter-divider">D</h2>
-        <article id="daydream-dock" class="entry" data-term="Daydream Dock">
-          <h3>Daydream Dock</h3>
-          <p>Daydream Dock is a designated slot where unstructured mind-wandering is not only allowed—it’s encouraged. Time-box it and capture anything interesting. Channel natural drift into productive insight without guilt or derailment.</p>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <article id="divergent-debrief" class="entry" data-term="Divergent Debrief">
-          <h3>Divergent Debrief</h3>
-          <p>Divergent Debrief is a quick reflection after you ship or stop. Capture what worked for your brain, what didn’t, and what to try next. This compounding insight accelerates growth and eases future starts.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-f" class="letter-divider">F</h2>
-        <article id="focus-campfire" class="entry" data-term="Focus Campfire">
-          <h3>Focus Campfire</h3>
-          <p>Focus Campfire is a recurring accountability gathering—co-working or check-ins—where shared warmth keeps momentum alive. Harness community to sustain effort and make progress feel social and safe.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <article id="focus-sprint" class="entry" data-term="Focus Sprint">
-          <h3>Focus Sprint</h3>
-          <p>A Focus Sprint is an intense, time-boxed interval (e.g., 25 minutes) tuned to your attention rhythm, followed by a rest. It builds endurance without burnout and respects natural cycles.</p>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-h" class="letter-divider">H</h2>
-        <article id="hyperfocus-haven" class="entry" data-term="Hyperfocus Haven">
-          <h3>Hyperfocus Haven</h3>
-          <p>Hyperfocus Haven is a bounded space to celebrate deep immersion safely. Use timers and exit ramps to enjoy intensity while avoiding overrun and crash.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-i" class="letter-divider">I</h2>
-        <article id="idea-avalanche" class="entry" data-term="Idea Avalanche">
-          <h3>Idea Avalanche</h3>
-          <p>Idea Avalanche is the thrilling yet overwhelming cascade of concepts. Capture first—no sorting—then categorize quickly. Prevent burial and turn chaos into structured innovation.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-m" class="letter-divider">M</h2>
-        <article id="mindful-momentum" class="entry" data-term="Mindful Momentum">
-          <h3>Mindful Momentum</h3>
-          <p>Mindful Momentum advances with energy awareness. Check in before you push, pivot, or pause so you keep pace without slipping into autopilot or guilt.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-n" class="letter-divider">N</h2>
-        <article id="neurodivergent-nest" class="entry" data-term="Neurodivergent Nest">
-          <h3>Neurodivergent Nest</h3>
-          <p>Neurodivergent Nest is a tailored environment that makes your brain feel secure and productive. Customize for your senses—light, sound, touch—so work feels inviting and doable.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-p" class="letter-divider">P</h2>
-        <article id="procrastination-pivot" class="entry" data-term="Procrastination Pivot">
-          <h3>Procrastination Pivot</h3>
-          <p>Procrastination Pivot turns avoidance into curiosity. Ask, “What would make this interesting?” or “What’s a 60-second starter?” Curiosity unlocks the first move.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-s" class="letter-divider">S</h2>
-        <article id="sensory-menu" class="entry" data-term="Sensory Menu">
-          <h3>Sensory Menu</h3>
-          <p>Sensory Menu is a ready list of inputs for different needs—up regulate, down regulate, or steady. Customize and keep it accessible to enhance adaptability.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <article id="synapse-sync" class="entry" data-term="Synapse Sync">
-          <h3>Synapse Sync</h3>
-          <p>Synapse Sync is the alignment of interests, energy, and support—those peak windows when everything clicks. Spot and engineer them intentionally to maximize potential.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-t" class="letter-divider">T</h2>
-        <article id="thought-constellation" class="entry" data-term="Thought Constellation">
-          <h3>Thought Constellation</h3>
-          <p>Thought Constellation maps interconnected ideas so you can choose a direction. Visual connections reveal patterns, show gaps, and spark next steps.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <article id="time-shield" class="entry" data-term="Time Shield">
-          <h3>Time Shield</h3>
-          <p>Time Shield protects your focus blocks with boundaries—calendar holds, do-not-disturb, and social agreements. Guard them like appointments with your future.</p>
-          <figure><figcaption></figcaption></figure>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-
-        <h2 id="letter-z" class="letter-divider">Z</h2>
-        <article id="zero-draft" class="entry" data-term="Zero Draft">
-          <h3>Zero Draft</h3>
-          <p>Zero Draft is the unjudged first version. Get it out messy, then polish later. It’s the antidote to perfectionism and the gateway to momentum.</p>
-          <a class="back-to-top" href="#top">Back to top</a>
-        </article>
-      </section>
-    </div>
-
-    <h2 class="letter-divider" id="more">More From The Archives</h2>
-    <div id="archive-grid" class="three-col"></div>
-    </div>
-    <div class="card">
-      <p>
-        A 100-term lexicon for neurodivergent life, productivity, and the weird
-        brilliance of brains that don’t behave.
-      </p>
-      <p>
-        This is where we name the patterns, honor the workarounds, and design
-        systems that fit how we actually function.
-      </p>
-      <p>
-        Visual icons for each term are coming. For now, we’re shipping the
-        words so they can start doing their job: giving you language for what
-        you’ve always felt.
-      </p>
-    </div>
-  </section>
-</main>
-
-  <div id="footer-mount"></div>
-  <script src="assets/js/layout.js?v=20251120" defer></script>
-  <script>
-  (function(){
-    const entriesRoot = document.getElementById('entries');
-    const toc = document.getElementById('toc-list');
-    const alpha = document.getElementById('alpha');
-    const search = document.getElementById('toc-search');
-    const seen = new Set();
-    const norm = (s) => (s||'').trim().toLowerCase().replace(/\s+/g,' ');
-
-    // Build A–Z
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(ch=>{
-      const a = document.createElement('a'); a.href = `#letter-${ch.toLowerCase()}`; a.textContent = ch; alpha.appendChild(a);
-    });
-
-    function addEntry(term, body) {
-      const letter = term[0].toUpperCase();
-      let header = entriesRoot.querySelector(`#letter-${letter.toLowerCase()}`);
-      if (!header) {
-        header = document.createElement('h2');
-        header.id = `letter-${letter.toLowerCase()}`;
-        header.className = 'letter-divider';
-        header.textContent = letter;
-        entriesRoot.appendChild(header);
-      }
-      const id = term.toLowerCase().replace(/[^a-z0-9]+/g,'-');
-      const art = document.createElement('article');
-      art.id = id; art.dataset.term = term; art.className = 'entry';
-      art.innerHTML = `<h3>${term}</h3><p>${body}</p><figure><figcaption></figcaption></figure><a class="back-to-top" href="#top">Back to top</a>`;
-      entriesRoot.appendChild(art);
-      const link = document.createElement('a'); link.href = `#${id}`; link.textContent = term; toc.appendChild(link);
-      seen.add(norm(term));
-    }
-
-    function filterTOC(q){
-      const query = q.trim().toLowerCase();
-      const links = toc.querySelectorAll('a');
-      const articles = entriesRoot.querySelectorAll('.entry');
-      articles.forEach((e, idx)=>{
-        const text = (e.dataset.term + ' ' + e.innerText).toLowerCase();
-        const match = !query || text.includes(query);
-        e.style.display = match ? '' : 'none';
-        if (links[idx]) links[idx].style.display = match ? '' : 'none';
-      });
-    }
-    search.addEventListener('input', (e)=>filterTOC(e.target.value));
-
-    // Parse markdown (## Term + paragraph)
-    fetch('data/divergipedia.md').then(r=>r.ok?r.text():'').then(md=>{
-      if (!md) return;
-      const blocks = md.split(/\n##\s+/).slice(1);
-      blocks.forEach(block=>{
-        const lines = block.split('\n');
-        const title = (lines.shift()||'').trim();
-        if (!title || seen.has(norm(title))) return;
-        let desc = '';
-        for (let i=0;i<lines.length;i++){
-          const line = lines[i].trim();
-          if (!line) { if (desc) break; else continue; }
-          if (line.startsWith('![')) continue;
-          desc += (desc?' ':'') + line;
-        }
-        if (desc) addEntry(title, desc);
-      });
-    }).catch(()=>{});
-
-    // Fallback sources (text list + JSON)
-    fetch('data/divergipedia_full.txt').then(r=>r.ok?r.text():'').then(txt=>{
-      const grid=document.getElementById('archive-grid');
-      if (!txt) return;
-      txt.split('\n').map(s=>s.trim()).filter(Boolean).forEach(line=>{
-        const parts=line.split('—'); if (parts.length<2) return;
-        const term=parts[0].replace(/^\d+\.\s*/, '').trim();
-        const desc=parts.slice(1).join('—').trim();
-        if (seen.has(norm(term))) return;
-        const card=document.createElement('div'); card.className='card';
-        card.innerHTML=`<h3 style="margin:0 0 6px;font-size:15px;">${term}</h3><p style="margin:0;color:var(--text-muted);font-size:13px;">${desc}</p>`;
-        grid.appendChild(card);
-        seen.add(norm(term));
-      });
-    }).catch(()=>{});
-
-    fetch('data/divergipedia.json').then(r=>r.ok?r.json():null).then(json=>{
-      if (!json||!json.pages) return;
-      const grid=document.getElementById('archive-grid');
-      json.pages.forEach(p=>{
-        if (seen.has(norm(p.title))) return;
-        const card=document.createElement('div'); card.className='card';
-        card.innerHTML=`<h3 style=\"margin:0 0 6px;font-size:15px;\">${p.title}</h3><p style=\"margin:0;color:var(--text-muted);font-size:13px;\">${p.description||''}</p>`;
-        grid.appendChild(card);
-        seen.add(norm(p.title));
-      });
-    }).catch(()=>{});
-
-    // Attach images (from pictures.json) or generate SVG
-    function hashCode(str){ let h=0; for(let i=0;i<str.length;i++){ h=(h<<5)-h+str.charCodeAt(i); h|=0; } return Math.abs(h); }
-    function colorFromHash(h,shift=0){ const hue=(h+shift)%360; return `hsl(${hue} 75% 60%)`; }
-    function svgForTerm(term,w=1200,h=600){
-      const hash = hashCode(term);
-      const c1 = colorFromHash(hash,0), c2=colorFromHash(hash,60), c3=colorFromHash(hash,120);
-      const circles = Array.from({length:8}).map((_,i)=>{
-        const r=40+((hash+i)%120), x=(hash*(i+3))%w, y=(hash*(i+7))%h, cc=[c1,c2,c3][i%3];
-        return `<circle cx=\"${x}\" cy=\"${y}\" r=\"${r}\" fill=\"${cc}\" fill-opacity=\"0.25\"/>`;
-      }).join('');
-      return `<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"${w}\" height=\"${h}\" viewBox=\"0 0 ${w} ${h}\">`+
-        `<defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"${c1}\" stop-opacity=\"0.35\"/><stop offset=\"60%\" stop-color=\"${c2}\" stop-opacity=\"0.35\"/><stop offset=\"100%\" stop-color=\"${c3}\" stop-opacity=\"0.35\"/></linearGradient></defs>`+
-        `<rect width=\"100%\" height=\"100%\" fill=\"#0b0c10\"/><rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"url(#g)\"/>`+
-        circles+
-        `<text x=\"50%\" y=\"52%\" fill=\"#fff\" font-family=\"system-ui,Segoe UI,Helvetica,Arial,sans-serif\" font-size=\"64\" font-weight=\"800\" text-anchor=\"middle\">${term}</text></svg>`;
-    }
-    function attachImage(fig, term, pictures){
-      const key = norm(term);
-      let chosen='';
-      const prefs = [key, key.split(' ')[0]];
-      for (const p of pictures){ if (prefs.some(pref=>pref && p.toLowerCase().includes(pref))) { chosen=p; break; } }
-      let img = fig.querySelector('img'); if (!img){ img=document.createElement('img'); fig.prepend(img); }
-      if (chosen) img.src = 'assets/pictures/'+chosen; else img.src = 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svgForTerm(term,1200,600));
-      img.alt = `Illustration: ${term}`;
-      img.style.width='100%'; img.style.borderRadius='12px'; img.style.border='1px solid rgba(255,255,255,0.06)';
-    }
-    function hydrateImages(pictures){
-      entriesRoot.querySelectorAll('.entry figure').forEach(fig=>{
-        const term = fig.closest('.entry')?.dataset.term || fig.closest('.entry')?.querySelector('h3')?.textContent || 'Divergify';
-        attachImage(fig, term, pictures);
-      });
-    }
-    fetch('data/pictures.json').then(r=>r.ok?r.json():[]).then(list=>Array.isArray(list)?list:[]).then(hydrateImages).catch(()=>hydrateImages([]));
-  })();
-  </script>
-
-  <!-- Library Achievements (Easter Eggs) -->
-  <div id="egg-badge" class="egg-badge" title="Library achievements" aria-label="Library achievements" role="button" style="display:none;">📚</div>
-  <div id="egg-panel" class="egg-panel" style="display:none;">
-    <h4>Library Achievements</h4>
-    <ul id="egg-list" class="egg-list"></ul>
+    <p>
+      Entries may be refined, merged, expanded, or retired over time. This is
+      intentional. Human cognition isn’t static, and neither is the language used
+      to describe it.
+    </p>
   </div>
-  <script>
-    (function(){
-      const badge = document.getElementById('egg-badge');
-      const panel = document.getElementById('egg-panel');
-      const list = document.getElementById('egg-list');
-      const storeKey = 'dg_eggs_session';
-      const eggs = [
-        { id:'browse-letters', title:'Stacks Navigator', text:'Visited 3 different letter sections.' },
-        { id:'search-used', title:'Index Whisperer', text:'Used the Divergipedia search.' },
-        { id:'bottom-reached', title:'Deep Diver', text:'Reached the end of the page.' },
-        { id:'back-to-top', title:'Gravity Hacker', text:'Used a “Back to top” link.' },
-        { id:'low-stim', title:'Night Ops', text:'Enabled Low‑Stim mode.' },
-        { id:'tinfoil', title:'Tin Foil Certified', text:'Enabled Tin Foil Hat mode.' },
-        { id:'zero-draft', title:'Zero Hero', text:'Found the “Zero Draft” entry.' },
-      ];
-      const unlocked = new Set(JSON.parse(sessionStorage.getItem(storeKey) || '[]'));
+</section>
 
-      function save(){ sessionStorage.setItem(storeKey, JSON.stringify([...unlocked])); }
-      function unlock(id){ if (!unlocked.has(id)) { unlocked.add(id); save(); render(); pulseBadge(); } }
-      function pulseBadge(){ if (!badge) return; badge.style.display='flex'; badge.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:400}); }
-      function render(){
-        if (!list) return;
-        list.innerHTML = '';
-        eggs.forEach(e => {
-          const li = document.createElement('li');
-          const ok = unlocked.has(e.id);
-          li.className = ok ? 'unlocked' : 'locked';
-          li.innerHTML = `<span class="egg-check">${ok?'✓':'•'}</span><div class="egg-text"><strong>${e.title}</strong><br>${e.text}</div>`;
-          list.appendChild(li);
-        });
-      }
-      render();
+<section class="section">
+  <h2>Index</h2>
+  <p class="index">
+    <a href="#A">A</a> ·
+    <a href="#B">B</a> ·
+    <a href="#C">C</a> ·
+    <a href="#E">E</a> ·
+    <a href="#G">G</a> ·
+    <a href="#H">H</a> ·
+    <a href="#M">M</a> ·
+    <a href="#P">P</a> ·
+    <a href="#R">R</a> ·
+    <a href="#T">T</a> ·
+    <a href="#Z">Z</a>
+  </p>
+</section>
 
-      // Toggle panel
-      let open = false;
-      function setOpen(v){ open=v; if (panel) panel.style.display = v?'block':'none'; if (badge) badge.style.display = 'flex'; }
-      badge?.addEventListener('click', ()=> setOpen(!open));
+<section class="section" id="A">
+  <h2>A</h2>
 
-      // Triggers
-      // 1) Browse letters — when 3 distinct header anchors are visited
-      const seenLetters = new Set();
-      document.getElementById('alpha')?.addEventListener('click', (e)=>{
-        const a = e.target.closest('a'); if (!a) return;
-        const m = (a.getAttribute('href')||'').match(/#letter-([a-z])/);
-        if (m) { seenLetters.add(m[1]); if (seenLetters.size >= 3) unlock('browse-letters'); }
-      });
+  <article>
+    <h3>Admin Alley</h3>
+    <p><em>noun</em></p>
 
-      // 2) Search used
-      document.getElementById('toc-search')?.addEventListener('input', (e)=>{
-        const val = (e.target.value||'').trim(); if (val) unlock('search-used');
-      });
+    <p>
+      A deliberately contained window of time reserved for low-dopamine
+      administrative tasks that would otherwise leak into everything else.
+    </p>
 
-      // 3) Reached bottom
-      function onScroll(){
-        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 40)) { unlock('bottom-reached'); window.removeEventListener('scroll', onScroll); }
-      }
-      window.addEventListener('scroll', onScroll);
+    <p>
+      Admin Alley exists to keep necessary but cognitively draining work from
+      haunting the rest of the day. Email, forms, billing portals, scheduling.
+      These tasks are done on purpose, in one place, for a fixed amount of time.
+    </p>
 
-      // 4) Back to top clicked
-      document.getElementById('entries')?.addEventListener('click', (e)=>{
-        const a = e.target.closest('a.back-to-top'); if (a) unlock('back-to-top');
-      });
+    <p>
+      It contains administrative load within a bounded window so unresolved tasks
+      don’t spill into higher‑value work.
+    </p>
 
-      // 5) Mode toggles from header
-      document.addEventListener('click', (e)=>{
-        if (e.target && e.target.id === 'toggle-low-stim') setTimeout(()=>{ if (document.body.classList.contains('low_stim')) unlock('low-stim'); }, 0);
-        if (e.target && e.target.id === 'toggle-tinfoil') setTimeout(()=>{ if (document.body.classList.contains('tinfoil')) unlock('tinfoil'); }, 0);
-      });
+    <p><strong>Behavioral basis:</strong><br>
+      Time-boxing, decision-fatigue reduction, cognitive load management.
+    </p>
 
-      // 6) Zero Draft visible
-      const zd = document.getElementById('zero-draft');
-      if (zd && 'IntersectionObserver' in window) {
-        const io = new IntersectionObserver((ents)=>{
-          ents.forEach(en=>{ if (en.isIntersecting) { unlock('zero-draft'); io.disconnect(); } });
-        }, { rootMargin: '0px 0px -20% 0px' });
-        io.observe(zd);
-      }
+    <p><strong>Related terms:</strong><br>
+      Cognitive Drag · Context Cache · Taskache
+    </p>
 
-      // Show badge if any unlocked; otherwise keep hidden until first unlock
-      if (unlocked.size) { badge.style.display='flex'; }
-    })();
-  </script>
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+
+  <article>
+    <h3>Anchor Task</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      A single stabilizing task chosen to prevent cognitive drift during periods
+      of overload or fragmentation.
+    </p>
+
+    <p>
+      Anchor Tasks reduce the cost of deciding what to do next by providing a
+      default action when attention collapses.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Decision simplification, attentional anchoring.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Task Mountain · Next Action Clarity
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="B">
+  <h2>B</h2>
+
+  <article>
+    <h3>Body Budget</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      An internal accounting of physical and sensory capacity that constrains
+      cognitive performance.
+    </p>
+
+    <p>
+      When the body budget is depleted, willpower and focus degrade regardless of
+      motivation.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Physiological load, self-regulation limits.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Brain Battery · Sensory Audit
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="C">
+  <h2>C</h2>
+
+  <article>
+    <h3>Chaos Control</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      The practice of shaping environments and systems to reduce unnecessary
+      cognitive friction rather than relying on self-control.
+    </p>
+
+    <p>
+      It reduces reliance on willpower by modifying cues, defaults, and
+      environment so desired actions become the path of least resistance.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Environmental design, friction management.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Setup Macro · Friction Hunt
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+
+  <article>
+    <h3>Cognitive Drag</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      The background mental resistance caused by unresolved, unscheduled, or
+      ambiguous obligations.
+    </p>
+
+    <p>
+      It accumulates as open loops occupy working memory, slowing decisions and
+      execution even when no active task is in progress.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Working memory saturation, open-loop tension.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Admin Alley · Context Cache
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="E">
+  <h2>E</h2>
+
+  <article>
+    <h3>Escape Velocity</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      The minimum activation energy required to overcome cognitive inertia and
+      enter sustained task engagement.
+    </p>
+
+    <p>
+      Small, concrete starter steps lower the initiation threshold and convert
+      inertia into forward motion.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Initiation thresholds, momentum dynamics.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Starter Step · Task Mountain
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="G">
+  <h2>G</h2>
+
+  <article>
+    <h3>Gremlin Mode</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      A dysregulated state marked by impulsivity, irritability, and reduced
+      executive oversight.
+    </p>
+
+    <p>
+      Characterized by heightened arousal and narrowed options; typically
+      resolves as regulation returns.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Stress response activation, inhibitory control failure.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Autopilot Mode · Kind Mode
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="H">
+  <h2>H</h2>
+
+  <article>
+    <h3>Hyperfocus Tunnel</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      A narrowed attentional state in which external cues are deprioritized in
+      favor of sustained internal engagement.
+    </p>
+
+    <p>
+      Highly productive when bounded; often difficult to exit promptly without
+      explicit cues or limits.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Attentional locking, reward sensitivity.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Context Cache · Transition Buffer
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="M">
+  <h2>M</h2>
+
+  <article>
+    <h3>Momentum Thief</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      Any interruption, decision, or context switch that disproportionately
+      disrupts forward progress.
+    </p>
+
+    <p>
+      Even brief interruptions can impose large re-entry costs before focus and
+      flow are restored.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Context switching cost.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Transition Buffer · Admin Alley
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="P">
+  <h2>P</h2>
+
+  <article>
+    <h3>Procrastiplanning</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      Planning behavior that creates the sensation of progress while avoiding
+      task initiation.
+    </p>
+
+    <p>
+      Produces the feeling of control while deferring uncertainty and effort
+      required to start.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Avoidance substitution.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Escape Velocity · Task Mountain
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="R">
+  <h2>R</h2>
+
+  <article>
+    <h3>Rumination Redirect</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      A deliberate shift from repetitive thought toward low-load physical or
+      cognitive activity.
+    </p>
+
+    <p>
+      Shifts attentional channels to interrupt looping thoughts and reduce
+      arousal.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Attentional reorientation.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Grounding Ritual · Kind Mode
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="T">
+  <h2>T</h2>
+
+  <article>
+    <h3>Task Mountain</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      A task perceived as disproportionately large due to unclear scope or
+      undefined entry points.
+    </p>
+
+    <p>
+      Perceived size drops when scope is clear and a concrete entry point
+      exists.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Cognitive load amplification.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Starter Step · Escape Velocity
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+
+  <article>
+    <h3>Taskache</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      The low-grade discomfort caused by holding too many tasks in mind without
+      externalizing them.
+    </p>
+
+    <p>
+      Internal pressure builds as tasks remain unexternalized; offloading
+      reduces load and frees attention.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Working memory saturation.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      Cognitive Drag · Context Cache
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section" id="Z">
+  <h2>Z</h2>
+
+  <article>
+    <h3>Zero Day Prevention</h3>
+    <p><em>noun</em></p>
+
+    <p>
+      The practice of ensuring at least one meaningful action occurs daily to
+      maintain continuity.
+    </p>
+
+    <p>
+      Preserves continuity and identity with minimal daily action, reducing
+      restart costs after lapses.
+    </p>
+
+    <p><strong>Behavioral basis:</strong><br>
+      Identity reinforcement, streak preservation.
+    </p>
+
+    <p><strong>Related terms:</strong><br>
+      One Thing Rule · Victory Log
+    </p>
+
+    <p class="contributor"><strong>Contributor:</strong> Divergify</p>
+  </article>
+</section>
+
+<section class="section">
+  <details class="language-system">
+    <summary>About Divergipedia’s language system</summary>
+
+    <p>
+      Divergipedia is a curated language system designed to name real, repeatable
+      cognitive and behavioral patterns. It is editorially maintained and not
+      crowdsourced.
+    </p>
+
+    <p>
+      Terms may be submitted for review. Submissions are voluntary and unpaid.
+      Accepted terms are credited and may be edited for clarity or consistency.
+    </p>
+
+    <p>
+      Divergipedia draws from behavioral science, cognitive psychology,
+      neuroscience, and systems theory. It does not claim to invent these
+      mechanisms. It translates them into usable language.
+    </p>
+  </details>
+</section>
+
 </body>
 </html>

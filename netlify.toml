@@ -4,3 +4,33 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/shop"
+  to = "https://dopamine-depot-2.myshopify.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/shop.html"
+  to = "https://dopamine-depot-2.myshopify.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dopamine-depot"
+  to = "https://dopamine-depot-2.myshopify.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/dopamine-depot.html"
+  to = "https://dopamine-depot-2.myshopify.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/store"
+  to = "https://dopamine-depot-2.myshopify.com"
+  status = 301
+  force = true
