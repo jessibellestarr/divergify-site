@@ -1,9 +1,6 @@
 [build]
-  command = ""
+  command = "echo 'Static site: no build'"
   publish = "."
 
 [build.environment]
   NODE_VERSION = "18"
-
-[[plugins]]
-  package = ""

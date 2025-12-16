@@ -48,152 +48,190 @@
   <link rel="alternate" type="application/rss+xml" title="Divergify Blog RSS" href="/feed.xml" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="assets/css/concept.css" />
+  <!-- Tin Foil Hat analytics guard: must run before any third-party scripts -->
+  <script src="assets/js/analytics-guard.js"></script>
 </head>
 <body class="home">
 <div id="nav-mount"></div>
 
-<main class="wrapper">
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-left hero_text">
-        <div class="hero-highlight"><span>●</span> Neurodivergent brains, fully invited.</div>
-        <h1>Organize your chaos.<br>Keep your spark.</h1>
-        <p>
-          Divergify is your AI-powered command center for ADHD & neurodivergent brains:
-          less shame, more structure, and systems that move at your speed.
-        </p>
-        <div class="hero-actions">
-          <a href="contact.html#beta" class="btn btn-primary">Join the beta</a>
-          <a href="app.html" class="btn btn-ghost">See what the app can do</a>
-        </div>
-        <div class="mode_strip" aria-label="App mode previews">
-          <span class="mode_label">Try it like in the app:</span>
-          <button class="mode_chip mode_active" data-mode="default">Default</button>
-          <button class="mode_chip" data-mode="low_sensory">Low sensory</button>
-          <button class="mode_chip" data-mode="tin_foil">Tin foil hat</button>
-        </div>
-        <div class="hero-meta">
-          No toxic productivity. No "just try harder."<br>
-          Just tools built for brains that don't do linear.
-        </div>
-      </div>
+<main class="dg-home">
 
-      <div class="hero-right hero_side" data-section="gremlin" role="complementary">
-        <div class="takota_card" id="takota_card">
-          <div class="takota_header">
-            <div class="takota_avatar" aria-hidden="true"></div>
-            <div class="takota_title">Takota</div>
-          </div>
-          <p class="takota_intro">Your resident chaos guide. Start here if you have questions.</p>
-          <ul class="takota_links">
-            <li><a href="about.html">What is Divergify?</a></li>
-            <li><a href="community.html">How do I join the community?</a></li>
-            <li><a href="app.html">When is the app coming out?</a></li>
-          </ul>
-          <form class="takota-chat" aria-label="Ask Takota" style="margin-top:10px; display:flex; gap:8px;">
-            <input type="text" placeholder="Ask Takota…" required
-                   style="flex:1; padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color:#fff;" />
-            <button type="submit" class="takota-send" style="background:#8BC34A; color:#05200c; border:none; border-radius:10px; padding:8px 12px; cursor:pointer;">Ask</button>
-          </form>
-          <div class="takota-reply" aria-live="polite" style="margin-top:6px; color:#fff; font-size:0.95rem;"></div>
-        </div>
-      </div>
-    </div>
+  <!-- HERO -->
+  <section class="dg-hero">
+    <h1>Divergify</h1>
+    <p class="dg-tagline">For brains that zig when the world zags.</p>
+    <p class="dg-hero-sub">
+      Some people fit systems.<br />
+      Some people outgrow them.
+    </p>
+    <a href="hub.html" class="dg-primary-cta">Enter The Hub</a>
   </section>
 
-  <div class="dg-spacer"></div>
+  <!-- THIS ISN’T FOR EVERYONE -->
+  <section class="dg-section">
+    <h2>This wasn’t built for everyone</h2>
 
-  
+    <p>Most systems reward predictability.</p>
+    <p>Compliance.</p>
+    <p>Straight lines.</p>
 
-  <section class="section">
-    <div class="section-header">
-      <div class="section-kicker">What Divergify actually does</div>
-      <h2 class="section-title">Not another to-do list. A brain-ops system.</h2>
-    </div>
-    <div class="three-col">
-      <div class="card">
-        <h3>Organize your chaos</h3>
-        <p>Turn idea avalanches, half-finished projects, and scattered notes into an ecosystem future-you can navigate.</p>
-      </div>
-      <div class="card">
-        <h3>Dopamine without the crash</h3>
-        <p>Micro-wins, gentle confetti, and systems that reward showing up, not binge finishing in one hyperfocus.</p>
-      </div>
-      <div class="card">
-        <h3>AI as your co-pilot</h3>
-        <p>Divergify pairs human brilliance with AI scaffolding so you don’t hold the whole mental mess in working memory.</p>
-      </div>
-    </div>
+    <p>Some minds don’t move that way.</p>
+
+    <p>They scan.</p>
+    <p>They connect.</p>
+    <p>They adapt.</p>
+
+    <p>Those minds tend to be told they’re the problem.</p>
+
+    <p><strong>They aren’t.</strong></p>
   </section>
 
-  <section class="section">
-    <div class="section-header">
-      <div class="section-kicker">Start where you are</div>
-      <h2 class="section-title">One click. Not twenty tabs.</h2>
-    </div>
-    <div class="three-col">
-      <div class="card">
-        <h3>Divergipedia</h3>
-        <p>A 100-term lexicon for our kind of brain. Name your patterns and stop thinking you’re “just lazy.”</p>
-        <p style="margin-top:8px;"><a href="divergipedia.html">Browse Divergipedia →</a>
-      <a href="https://dopamine-depot-2.myshopify.com" target="_blank" rel="noopener">Store</a></p>
-      </div>
-      <div class="card">
-        <h3>Try the beta app</h3>
-        <p>Test-drive Divergify, track your chaos, and help us shape tools that actually work in the wild.</p>
-        <p style="margin-top:8px;"><a href="app.html">App beta details →</a></p>
-      </div>
-      <div class="card" data-section="shop">
-        <h3>Dopamine Depot</h3>
-        <p>
-          The Divergify shop is where all the chaos gets printed on things you can actually use. Shirts, mugs, notebooks, stickers. Stuff that reminds you your brain is not the problem.
-        </p>
+  <!-- WHAT THIS IS -->
+  <section class="dg-section dg-alt">
+    <h2>What Divergify is</h2>
 
-        <div class="product-strip">
-          <div class="product-card">
-            <h3>Dopamine Gremlin Tee</h3>
-            <p class="tagline">Do not feed the gremlin nonsense.</p>
-            <p>A soft tee for days when your brain is three tabs from meltdown and still somehow showing up.</p>
-          </div>
+    <p>Divergify isn’t here to motivate you.</p>
+    <p>It’s not here to fix you.</p>
+    <p>And it’s definitely not here to slow itself down for comfort.</p>
 
-          <div class="product-card">
-            <h3>Signal Station Tee</h3>
-            <p class="tagline">Broadcasting on the wrong frequency on purpose.</p>
-            <p>For people who never quite match the room and stopped pretending to try.</p>
-          </div>
+    <p>
+      It exists to give capable people an environment that doesn’t work against them.
+    </p>
 
-          <div class="product-card">
-            <h3>Brain Dump Notebook</h3>
-            <p class="tagline">Better out than stuck on loop.</p>
-            <p>For plans, panic math, sidequests, and half ideas that are not ready to die yet.</p>
-          </div>
+    <p>
+      A bridge between how your brain actually operates
+      and the systems you still have to navigate.
+    </p>
 
-          <div class="product-card">
-            <h3>Sparkstorm Mug</h3>
-            <p class="tagline">Too many ideas, not enough caffeine.</p>
-            <p>For the thinker who keeps saying “one more cup” and lying about it.</p>
-          </div>
+    <p>Nothing magical.</p>
+    <p>Nothing soft.</p>
 
-          <div class="product-card">
-            <h3>Neurospicy Sticker Pack</h3>
-            <p class="tagline">For laptops, notebooks, and chaos.</p>
-            <p>Signal Station, Dopamine Gremlin, Brain Sprint and more in sticker form.</p>
-          </div>
-
-          <div class="product-card">
-            <h3>Advanced OS Tote</h3>
-            <p class="tagline">Your brain is an upgrade, not a bug.</p>
-            <p>Canvas tote for carrying projects, snacks, and the three things you forgot.</p>
-          </div>
-        </div>
-
-        <!-- Link to internal shop page -->
-        <a class="button shop-button" href="https://dopamine-depot-2.myshopify.com" target="_blank" rel="noopener">
-          Shop now
-        </a>
-      </div>
-    </div>
+    <p><strong>Just deliberate design.</strong></p>
   </section>
+
+  <!-- WHAT HAPPENS HERE -->
+  <section class="dg-section">
+    <h2>What happens here</h2>
+
+    <p>You’ll notice a few things quickly.</p>
+
+    <ul>
+      <li>Nothing rushes you.</li>
+      <li>Nothing talks down to you.</li>
+      <li>Nothing assumes you need saving.</li>
+    </ul>
+
+    <div class="dg-feature">
+      <h3>The Hub</h3>
+      <p>A place to think, plan, and execute without chaos.</p>
+    </div>
+
+    <div class="dg-feature">
+      <h3>Low-Stim by default</h3>
+      <p>Less noise. Fewer demands. More clarity.</p>
+    </div>
+
+    <div class="dg-feature">
+      <h3>Divergipedia</h3>
+      <p>Language for patterns you already recognize.</p>
+    </div>
+
+    <div class="dg-feature">
+      <h3>Tin Foil Hat mode</h3>
+      <p>When it’s on, tracking stops. No fine print.</p>
+    </div>
+
+    <p>
+      This isn’t productivity theater.<br />
+      It’s space for competence to show up.
+    </p>
+  </section>
+
+  <!-- LINE IN THE SAND -->
+  <section class="dg-section dg-alt">
+    <h2>A line we won’t cross</h2>
+
+    <p>No one is doing the work for you.</p>
+
+    <p>
+      Divergify supports effort.<br />
+      It doesn’t replace it.
+    </p>
+
+    <p>
+      Effort shouldn’t be wasted fighting systems
+      that were never designed for your mind.
+    </p>
+
+    <p>
+      Remove the friction.<br />
+      Let intelligence do its job.
+    </p>
+  </section>
+
+  <!-- WHO FINDS THEIR WAY HERE -->
+  <section class="dg-section">
+    <h2>Who finds their way here</h2>
+
+    <ul>
+      <li>People who think in systems, not steps</li>
+      <li>People who see problems before they’re obvious</li>
+      <li>People who struggle in rigid workflows but excel in complexity</li>
+      <li>People who have been underestimated more than once</li>
+    </ul>
+
+    <p>
+      Neurodivergent adults.<br />
+      Parents who recognize potential early.<br />
+      People who stopped waiting for approval.
+    </p>
+
+    <p><strong>If this feels familiar, you already know why.</strong></p>
+  </section>
+
+  <!-- STANCE -->
+  <section class="dg-section dg-alt">
+    <h2>The stance</h2>
+
+    <p>No attention extraction.</p>
+    <p>No data selling.</p>
+    <p>No shame loops.</p>
+
+    <p>
+      This is being built deliberately.
+    </p>
+
+    <p>
+      Not loudly.<br />
+      Not desperately.
+    </p>
+
+    <p><strong>Correctly.</strong></p>
+  </section>
+
+  <!-- TAKODA PLACEHOLDER -->
+  <section class="dg-section dg-takoda">
+    <h2>Takoda</h2>
+    <p>
+      Guidance, reflection, and grounded direction.<br />
+      Without noise.
+    </p>
+    <p><em>Coming online.</em></p>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="dg-section dg-final">
+    <p>You don’t need permission.</p>
+    <p>You don’t need validation.</p>
+    <p>You don’t need an explanation.</p>
+
+    <p>
+      You need an environment that doesn’t get in the way.
+    </p>
+
+    <a href="hub.html" class="dg-primary-cta">Enter The Hub</a>
+  </section>
+
 </main>
 
 <footer>
@@ -366,11 +404,21 @@
       you can toss a tip our way.
     </p>
 
-    <div class="ko-fi-widget">
-      <script src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"></script>
+    <div class="ko-fi-widget" id="ko-fi-widget">
       <script>
-        kofiWidget2.init('Support Us on Ko-fi', '#8BC34A', 'divergify');
-        kofiWidget2.draw();
+        (function(){
+          var on = (window.__dgTinFoilHatOn === true);
+          if (on) { try { console.info('[Divergify] Tin Foil Hat ON — Ko-fi disabled.'); } catch (e) {}
+            return; }
+          var s = document.createElement('script');
+          s.src = 'https://storage.ko-fi.com/cdn/widget/Widget_2.js';
+          s.async = true;
+          s.onload = function(){
+            try { kofiWidget2.init('Support Us on Ko-fi', '#8BC34A', 'divergify'); kofiWidget2.draw(); } catch (e) {}
+          };
+          // Append loader next to this script inside the widget container
+          (document.currentScript && document.currentScript.parentElement ? document.currentScript.parentElement : document.body).appendChild(s);
+        })();
       </script>
     </div>
   </div>

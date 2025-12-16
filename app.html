@@ -32,6 +32,8 @@
   <link rel="canonical" href="https://divergify.app/app.html" />
   
   <link rel="stylesheet" href="styles.css" />
+  <!-- Tin Foil Hat analytics guard: must run before any third-party scripts -->
+  <script src="assets/js/analytics-guard.js"></script>
 </head>
 <body>
 <header>
@@ -159,11 +161,20 @@
     you can toss a tip our way.
   </p>
 
-  <div class="ko-fi-widget">
-    <script src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"></script>
+  <div class="ko-fi-widget" id="ko-fi-widget">
     <script>
-      kofiWidget2.init('Support Us on Ko-fi', '#8BC34A', 'divergify');
-      kofiWidget2.draw();
+      (function(){
+        var on = (window.__dgTinFoilHatOn === true);
+        if (on) { try { console.info('[Divergify] Tin Foil Hat ON — Ko-fi disabled.'); } catch (e) {}
+          return; }
+        var s = document.createElement('script');
+        s.src = 'https://storage.ko-fi.com/cdn/widget/Widget_2.js';
+        s.async = true;
+        s.onload = function(){
+          try { kofiWidget2.init('Support Us on Ko-fi', '#8BC34A', 'divergify'); kofiWidget2.draw(); } catch (e) {}
+        };
+        (document.currentScript && document.currentScript.parentElement ? document.currentScript.parentElement : document.body).appendChild(s);
+      })();
     </script>
   </div>
 </div>
