@@ -420,6 +420,29 @@ body.tinfoil {
 .egg-list li .egg-text { opacity: .92; }
 .egg-list li.locked .egg-text { opacity: .6; }
 
+.footer-legal {
+  text-align: center;
+  margin-top: 18px;
+  opacity: 0.55;
+}
+
+.footer-trademark {
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.footer-disclaimer {
+  font-size: 0.6rem;
+  line-height: 1.3;
+  margin: 4px 0 0;
+}
+
+@media (max-width: 600px) {
+  .footer-disclaimer {
+    font-size: 0.55rem;
+  }
+}
+
 .ko-fi-title {
   font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
