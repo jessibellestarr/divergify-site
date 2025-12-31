@@ -22,7 +22,9 @@ export default function BlogPage({ data }) {
 
 export const query = graphql`
   query BlogIndexQuery {
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           id
@@ -38,4 +40,3 @@ export const query = graphql`
     }
   }
 `;
-
