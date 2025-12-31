@@ -1,6 +1,23 @@
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+      fields: Fields
+    }
+    type Frontmatter {
+      title: String
+      date: Date @dateformat
+    }
+    type Fields {
+      slug: String
+    }
+  `);
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "MarkdownRemark") {
